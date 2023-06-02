@@ -1,0 +1,26 @@
+ul {
+    list-style: none;
+}
+.sub_menu1 {
+    cursor: pointer;
+}
+
+.sub_menu2 {
+    display: none;
+}
+
+li > ul {
+    list-style: none;
+    border: 4px black solid;
+    border-radius: 20px;
+}
+
+li {
+    font-size: 20px;
+    line-height: 2;
+    list-style: none;
+}
+
+b {
+    font-size: 30px;
+}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>input 태그</title>
+</head>
+<body>
+	
+	<!-- 
+		인풋 태그는 사용자에게 데이터를 입력받는 양식을 만든다.
+		type 속성으로 입력 양식 종류를 결정한다.
+		form 속성에 연결할 id를 지정하면 연결할 수 있다. ( 연결 안하면 데이터가 넘거자이 않는다.
+	-->
+	form 외부 : <input type="text" name="jumoin" placeholder="주민등록번호 앞자리" maxlength="6" form="myinfo"/>
+		<form id="myinfo" action="?" method="get" novalidate="novalidate">
+		<!-- 
+			name 속성으로 양식의 이름을 지정한다. 입력한 데이터가 name 속성에 저장되서 action 페이지로 전송된다. 
+			autofocus속성을 지정하면 페이지가 로드될 때 자동으로 포커스(커서)가 위치한다.
+			autofocus속성은 문서 내에서 고유해야 한다.
+		-->
+		이메일 : <input type="email" name="email" autofocus="autofocus"/><br/>
+		비밀번호 : <input type="password" name="password"/><br/>
+		<!-- 
+			value 속성으로 양식의 초기값을 지정한다.
+			readonly 속성으로 양식을 읽기 전용으로 지정한다.
+			disabled 속성으로 양식을 비활성화 시킨다. 데이터가 action 페이지로 전송되지 않는다.
+		 -->
+		나이1 : <input type="number" name="age1" value="0" readonly="readonly"/><br/>
+		나이2 : <input type="number" name="age2" value="10" disabled="disabled"/><br/>
+		나이3 : <input type="number" name="age3" placeholder="나이를 입력하세요"><br/>
+		나이4 : <input type="number" name="age4" value="0" min="0" max="10" step="2"><br/>
+		취미<br/>
+		<!-- checkbox, radio는 같은 그룹끼리 name 속성을 지정해야 한다. -->
+		<!-- checkbox, radio는 데이터 입력 기능이 없으므로 value 속성으로 넘겨줄 데이터를 넣어야 한다.. -->
+		공부 <input type="checkbox" name="hobbies" value="공부"/>
+		독서 <input type="checkbox" name="hobbies" value="독서"/>
+		명상 <input type="checkbox" name="hobbies" value="명상"/><br/>
+		성별<br/>
+		남자 <input type="radio" name="gender" value="남자"/>
+		여자 <input type="radio" name="gender" value="여자"/><br/>
+		이미지 submit 버튼 <input type="image" name="image" src="./images/down.png" width="50px"/><br/>
+		<input type="submit" value="로그인"/>
+		<input type="reset" value="다시쓰기"/>
+	</form>
+
+</body>
+</html>

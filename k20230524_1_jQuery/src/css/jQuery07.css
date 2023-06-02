@@ -1,0 +1,16 @@
+.a {
+    color: black;
+    text-decoration: none;
+}
+
+.menu {
+    width: 150px;
+    border: 1px solid #53c57b;
+    background: antiquewhite;
+    transition: 0.5s;
+}
+
+.menu:hover {
+    background: aqua;
+    width: 200px;
+}

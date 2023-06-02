@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>트랜스폼3D</title>
+
+<style type="text/css">
+	/*  
+		- transform 2D 변환 함수 
+			=> translate3d(x , y, z) 이동
+			=> translateZ(z) z축만 이동
+			=> scale3d(x , y , z) 크기 변경
+			=> scaleZ(z)
+			=> rotate3d(x , y , z 각도 deg) 회전
+			=> rotateZ(z 각도 deg) 
+	*/
+	img {
+		width: 300px;
+		border: 2px solid navy;
+		margin: 50px;
+		transition-duration: 2s;
+	}
+	
+	img:hover {
+		transform: rotateZ(1080deg);
+	}
+	
+</style>
+</head>
+<body>
+
+<img alt="안드로이드" src="./images/android.png">
+</body>
+</html>

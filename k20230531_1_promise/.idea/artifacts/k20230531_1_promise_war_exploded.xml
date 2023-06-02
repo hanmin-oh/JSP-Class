@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="k20230531_1_promise:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/k20230531_1_promise_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="k20230531_1_promise/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="k20230531_1_promise" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

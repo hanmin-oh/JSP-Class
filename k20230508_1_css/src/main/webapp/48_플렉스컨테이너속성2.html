@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex container2</title>
+
+<style type="text/css">
+	/*  
+		- 단축 속성
+		flex-flow
+		
+		- 개별 속성
+		flex-direction : flex 아이템의 주 축을 설정한다.
+			=> row
+			=> row-reverse
+			=> column
+			=> column-reverse
+		flex-wrap : flex 아이템의 여러 줄 묶은(줄 바꿈)을 설정한다.
+			=> nowrap : 컨테이너의 크기가 아이템 전체의 크기보다 작으면 아이템의 크기를 줄여서
+				컨테이너 크기에 맞춰 넣어준다.
+			=> wrap : 컨테이너 크기가 작아서 아이템들이 한 줄로 표시되지 않으면 줄을 바꿔서 넣어준다.
+			=> wrap-reverse : wrap과 같고 역방향 표시
+	*/
+	
+	.container {
+		width: 500px;
+		height: 400px;
+		border: 4px solid olivedrab; 
+		/* flex : 컨테이너의 크기가 작아서 아이템들을 다 넣을 수 없으면 자동으로 아이템의 크기를 적게한다. */
+		display: flex;
+		flex-flow: row wrap;
+	}
+	
+	.container > .item {
+		width: 150px;
+		/* 아이템의 height 속성을 생략하면 auto가 기본값이므로 아이템을 컨테이너에 가득 채운다. */
+		height: 100px;
+		border: 4px solid bisque;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item">1</div>
+		<div class="item">2</div>
+		<div class="item">3</div>
+		<div class="item">4</div>
+		<div class="item">5</div>
+	</div>
+</body>
+</html>

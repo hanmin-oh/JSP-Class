@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>애니메이션 속성4</title>
+
+<style type="text/css">
+	/*  
+		animation-fill-mode: 애니메이션 전후 상태(위치)를 설정한다. none이 기본값
+		animation-play-state: 애니메이션의 재생과 정지를 설정한다. running이 기본값
+			=> running: 기본값, 애니메이션을 동작시킨다.
+			=> paused: 애니메이션을 일시적으로 중지시킨다.
+		
+	*/
+	
+	.box {
+		width: 150px;
+		height: 100px;
+		margin: 20px;
+		background-color: green;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		font-size: 20px;
+		font-weight: bold;
+		
+		/*
+		animation-name: size-up;
+		animation-duration: 3s;
+		animation-timing-function: linear;
+		animation-delay: 0s;
+	 	animation-iteration-count: infinite;
+		animation-direction: alternate; 
+		animation-fill-mode: both;  
+		animation-play-state : pause;
+		*/
+		animation: size-up 2s linear 0s infinite alternate both;  
+	}
+	
+	.box::before {
+		content: "running";
+	}
+	
+	.box:hover::before {
+		content: "pause";
+		color: bisque;
+	}
+	
+	.box:hover::after {
+		animation-play-state: paused;
+	}
+	
+	@keyframes size-up {
+		0% {
+			width: 150px;
+		}
+		100% {
+			width: 95%;
+		}
+	}
+	
+</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

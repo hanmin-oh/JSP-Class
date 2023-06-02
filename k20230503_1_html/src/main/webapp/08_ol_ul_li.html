@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>목록 정의</title>
+</head>
+<body>
+	<!-- 
+		<ul> 태그는 정렬되지 않은(순서없는) 목록을 만든다.
+		<ol> 태그는 정렬된(순서있는) 목록을 만든다.
+		<li> 태그는 목록들의 항목들을 만든다. <ul>, <ol> 태그 내부에 위치해야 한다.
+		
+		<ul> 태그에 type 속성으로 목록 앞의 표식을 변경할 수 있다.
+		disc가 기본값이고 색이 채워진 원이 표시된다. 
+	-->
+	<ul type="circle">
+		<li>사과</li>
+			<ul type="square">
+				<li>아오리</li>
+				<li>홍로</li>
+				<li>부사</li>
+			</ul>
+		<li>바나나</li>
+		<li>망고</li>
+	</ul>
+	
+	<!-- 
+		<ol> 태그에 type 속성으로 목록 앞의 표식을 변경할 수 있다.
+		
+	-->
+	
+	<ol type="a" reversed="reversed">
+		<li>java</li>
+		<li>jsp</li>
+			<ol>
+				<li>html</li>
+				<li>css</li>
+				<li>javascript</li>
+				<li>jquery</li>
+				<li>jsp</li>
+			</ol>
+		<li value="10">spring</li>	
+		<li>spring boot</li>	
+	</ol>
+</body>
+</html>

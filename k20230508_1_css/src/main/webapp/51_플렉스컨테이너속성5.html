@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>flex container5</title>
+
+<style type="text/css">
+	
+	/*  
+		align-items: 교차축의 아이템 정렬 방식을 지정한다. 아이템이 1줄로 표시될 경우 사용한다.
+		
+	*/
+	
+	.container1 {
+		height: 300px;
+		border: 4px solid olivedrab; 
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start; 
+		
+		align-content: stretch;
+		align-items: stretch;
+	}
+	
+	.container1 > .item1 {
+		width: 100px;
+		border: 4px solid bisque;
+	}
+	
+	.container2 {
+		height: 300px;
+		border: 4px solid olivedrab; 
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start; 
+		align-content: flex-start;
+		align-items: flex-start;
+	}
+	
+	.container2 > .item1 {
+		width: 100px;
+		height: 100px;
+		border: 4px solid bisque;
+	}
+	
+	.container3 {
+		height: 300px;
+		border: 4px solid olivedrab; 
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start; 
+		flex-wrap: wrap;
+		align-content: flex-end;
+		align-items: flex-end;
+	}
+	
+	.container3 > .item1 {
+		width: 100px;
+		height: 100px;
+		border: 4px solid bisque;
+	}
+	
+	.container4 {
+		height: 300px;
+		border: 4px solid olivedrab; 
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start; 
+		flex-wrap: wrap;
+		align-content: center;
+		align-items: center;
+	}
+	
+	.container4 > .item1 {
+		width: 100px;
+		height: 100px;
+		border: 4px solid bisque;
+	}
+	
+	.container5 {
+		width: 200px;
+		height: 800px;
+		border: 4px solid olivedrab; 
+		display: flex;
+		flex-flow: row;
+		justify-content: flex-start; 
+		flex-wrap: wrap;
+		align-content: space-between;
+		align-items: baseline;
+	}
+	
+	.container5 > .item1 {
+		width: 100px;
+		height: 100px;
+		border: 4px solid bisque;
+	}
+	
+	
+</style>
+</head>
+	stretch<br/>
+	<div class="container1">
+		<div class="item1">1</div>
+		<div class="item1">2</div>
+		<div class="item1">3</div>
+		<div class="item1">4</div>
+		<div class="item1">5</div>
+	</div>
+	
+	flex-start<br/>
+	<div class="container2">
+		<div class="item1">1</div>
+		<div class="item1">2</div>
+		<div class="item1">3</div>
+		<div class="item1">4</div>
+		<div class="item1">5</div>
+	</div>
+	
+	flex-end<br/>
+	<div class="container3">
+		<div class="item1">1</div>
+		<div class="item1">2</div>
+		<div class="item1">3</div>
+		<div class="item1">4</div>
+		<div class="item1">5</div>
+	</div>
+	
+	center<br/>
+	<div class="container4">
+		<div class="item1">1</div>
+		<div class="item1">2</div>
+		<div class="item1">3</div>
+		<div class="item1">4</div>
+		<div class="item1">5</div>
+	</div>
+	
+	baseline<br/>
+	<div class="container5">
+		<div class="item1">1</div>
+		<div class="item1">2</div>
+		<div class="item1">3</div>
+		<div class="item1">4</div>
+		<div class="item1">5</div>
+	</div>
+	
+
+</body>
+</html>
