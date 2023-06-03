@@ -2,6 +2,8 @@
 <html>
   <head>
     <title>로그인/로그아웃</title>
+    <script defer type="text/javascript" src="./js/practice.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.js"></script>
   </head>
   <body>
 
@@ -28,10 +30,12 @@
         session.setAttribute("id" , id);
         session.setAttribute("name" , "관리자");
         session.setAttribute("login" , "yes");
-        out.println("alert(' " + session.getAttribute("name") + "님 어서오세요.')");
+        //out.println("alert(' " + session.getAttribute("name") + "님 어서오세요.')");
       } else {
         // 로그인 에러 처리
+        //out.println("이순신");
         out.println("alert('아이디 또는 비밀번호가 올바르지 않습니다.')");
+        //out.println("document.getElementById('span').innerHTML = '이순신' ");
       }
     }
         out.println("</script>");
@@ -47,7 +51,7 @@
 <%-- 로그아웃 상태일 경우 브라우저에 표시될 내용 --%>
 <form action="?" method="post">
   <table width="300px" border="1" cellpadding="5" cellspacing="0">
-    <tr>
+    <tr id="tr">
       <th><label for="id">아이디</label></th>
       <td>
         <input type="text" id="id" name="id"/>
@@ -64,6 +68,7 @@
         <input type="submit" value="로그인"/>
       </td>
     </tr>
+    <span id="span"></span>
   </table>
 </form>
 <%

@@ -5,19 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6ff5739b-70b0-456f-8274-a62f217f8b93" name="변경" comment="0601 Promise End">
-      <change afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_NumberFormatException.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/areaTest.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/requestTest.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/scopeTest.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_2_coookie/web/cookieRead.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_2_coookie/web/cookieWrite.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_3_formcheck/web/js/juminForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_3_formcheck/web/juminForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/k20230602_4_loginTest/web/loginTest.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_500.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +33,13 @@
       </UrlAndAccount>
     </option>
   </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -60,7 +55,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/k-digital/web/workspace",
+    "last_opened_file_path": "C:/k-digital/web/workspace/k20230602_4_loginTest",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -83,6 +78,94 @@
       <recent name="C:\k-digital\web\workspace\k20230531_1_promise\src\js" />
     </key>
   </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.74" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.74" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
+      <option name="COMMON_VM_ARGUMENTS" value="-Dfile.encoding=UTF-8" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <file path="%IDEA_RUN:TOMCAT_HOME%">
+          <settings>
+            <option name="CONTEXT_PATH" value="/apache_tomcat_9_0_74" />
+          </settings>
+        </file>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="7e7381a4-b9b1-4d99-b414-4e98bfb1f5ed" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="55940" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="디폴트 작업">
@@ -100,6 +183,7 @@
       <workItem from="1685607447487" duration="179000" />
       <workItem from="1685667006632" duration="420000" />
       <workItem from="1685693888264" duration="56000" />
+      <workItem from="1685765069912" duration="249000" />
     </task>
     <task id="LOCAL-00001" summary="0531 class end">
       <created>1685529787555</created>
@@ -125,5 +209,16 @@
     <MESSAGE value="0531 class end" />
     <MESSAGE value="0601 Promise End" />
     <option name="LAST_COMMIT_MESSAGE" value="0601 Promise End" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/k20230602_4_loginTest/web/loginTest.jsp</url>
+          <line>5</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

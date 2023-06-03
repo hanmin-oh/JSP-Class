@@ -104,6 +104,6 @@ function formCheck(obj) {
         obj.j1.focus();
         return false;
     }
-    return true;
+    return false;
 }
 
