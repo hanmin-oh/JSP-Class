@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff5739b-70b0-456f-8274-a62f217f8b93" name="변경" comment="0601 Promise End" />
+    <list default="true" id="6ff5739b-70b0-456f-8274-a62f217f8b93" name="변경" comment="0601 Promise End">
+      <change afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_NumberFormatException.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/areaTest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/requestTest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_1_areaTest/web/scopeTest.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_2_coookie/web/cookieRead.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_2_coookie/web/cookieWrite.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_3_formcheck/web/js/juminForm.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_3_formcheck/web/juminForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/k20230602_4_loginTest/web/loginTest.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/WEB-INF/web.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_500.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/k20230601_1_errorPage/web/errorPage/errorPage_500.jsp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,31 +53,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/k-digital/web/workspace/k20230531_1_promise/src&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;모듈&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/k-digital/web/workspace",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일&quot;: [
-      &quot;JAVA&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/새 스크래치 파일": [
+      "JAVA"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\k-digital\web\workspace\k20230602_1_areaTest\web" />
       <recent name="C:\k-digital\web\workspace\k20230531_1_promise\src" />
       <recent name="C:\k-digital\web\workspace\k20230531_1_promise\src\js" />
     </key>
@@ -83,6 +98,8 @@
       <workItem from="1685512527906" duration="18473000" />
       <workItem from="1685579506684" duration="22994000" />
       <workItem from="1685607447487" duration="179000" />
+      <workItem from="1685667006632" duration="420000" />
+      <workItem from="1685693888264" duration="56000" />
     </task>
     <task id="LOCAL-00001" summary="0531 class end">
       <created>1685529787555</created>

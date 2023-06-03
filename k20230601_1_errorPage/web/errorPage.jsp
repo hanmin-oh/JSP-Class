@@ -14,18 +14,15 @@
 
 <a href="pageOK.jsp">눌러봐~~~~~</a>
 
+
 <%
-   /* 	int i = 10 / 0;
+  	int i = 10 / 0;
     int j = Integer.parseInt("꺄아~~~~~");
 	ArrayList<String> list = null;
-	list.get(0);*/
+	list.get(0);
 %>
 
 
 </body>
 </html>
 
-
-<%--
-    NSIE는 자체적으로
---%>

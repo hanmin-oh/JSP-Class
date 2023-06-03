@@ -8,6 +8,7 @@ $( () => {
     $('b').eq(0).next().css({'fontSize' : '30px' , 'color': 'red'});
     //$('b:eq(2)').next().css({'fontSize' : '30px' , 'color': 'blue'}); //<b>태그에 next()를 쓸 순 없다?
     $('b').nextAll().css({'fontSize' : '30px' , 'color': 'green'});
+
 });
 
 
