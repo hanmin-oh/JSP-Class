@@ -1,6 +1,6 @@
-onload = function () {
+$( () => {
     document.getElementsByName('j1')[0].focus();
-}
+});
 
 /*  javascript keyboard 이벤트
 onkeypress : 키보드를 누르고 있을 때 실행되는 이벤트
@@ -52,6 +52,7 @@ function formCheck(obj) {
     return true;*/
     if(Number(obj.j1.value.trim()) == NaN) {
         alert('주민번호는 숫자만 입력해주세요');
+        //$('input:eq(0)').val('');
         obj.j1.value = '';
         obj.j1.focus();
         return false;
@@ -81,7 +82,7 @@ function formCheck(obj) {
 
 
     //주민등록번호 유효성 검사 - 입력된 주민등록번호를 하나의 문자열로 이어준다.
-    let jumin = obj.j1.value + obj.j2.value;
+    /*let jumin = obj.j1.value + obj.j2.value;
     //자바스크립트는 문자열끼리 덧셈 연산을 하면 문자열을 연결하지만, 뺄샘, 곱셉, 나눗셈은 숫자로 바꿔서 연산한다.
     //문자열로 구성된 숫자의 덧셈을 하려면 Number() 함수를 이용해 숫자로 변환한 뒤 연산한다.
 
@@ -93,9 +94,9 @@ function formCheck(obj) {
         // sum += jumin.charAt(i) * (i < 8 ? i + 2 : i - 6);
         sum += jumin.charAt(i) * (i % 8 + 2);
     }
-    /* sum에 저장된 값을 11로 나눈 나머지를 11에서 뺀 결과가 주민등록번호의 마지막 자리와 같아야 한다.
+    /!* sum에 저장된 값을 11로 나눈 나머지를 11에서 뺀 결과가 주민등록번호의 마지막 자리와 같아야 한다.
     11로 나눈 나머지를 11에서 뺀 결과가 10 이상일 경우 10의 자리는 버리고 1의 자리만 취해서 주민등록번호의
-    마지막 자리와 비교한다.*/
+    마지막 자리와 비교한다.*!/
     let result = (11 - sum % 11) % 10 ;
     if(result != jumin.charAt(12)) {
         alert('잘못된 주민번호입니다. ')
@@ -103,7 +104,7 @@ function formCheck(obj) {
         obj.j2.value = '';
         obj.j1.focus();
         return false;
-    }
+    }*/
     return false;
 }
 

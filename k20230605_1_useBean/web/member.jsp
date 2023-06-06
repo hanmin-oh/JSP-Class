@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="memberOk.jsp" method="post" onsubmit="return passwordCheck(this)">
+<form action="memberOk2.jsp" method="post" onsubmit="return passwordCheck(this)">
     <table width="500" align="center" border="1" cellpadding="5" cellspacing="0">
         <tr>
             <th colspan="2">회원가입</th>
