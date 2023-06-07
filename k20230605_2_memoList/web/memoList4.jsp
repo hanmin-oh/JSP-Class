@@ -25,8 +25,8 @@
         }
     </style>
 </head>
-<body>
 
+<body>
 <!-- 입력 화면 시작 -->
 <form action="memoInsert.jsp" method="post">
     <table width="1000" align="center" border="1" cellpadding="5" cellspacing="0">

@@ -77,14 +77,14 @@
         currentPage = currentPage > totalPage ? totalPage : currentPage ;
     } catch (NumberFormatException e) {
     }
-    /*startNo = (currentPage - 1) * pageSize;
+    startNo = (currentPage - 1) * pageSize;
     endNo = startNo + pageSize - 1;
     endNo = endNo < totalCount ? totalCount : endNo;
     sql = "SELECT * FROM memolist ORDER BY idx DESC limit ?, ?";
     pstmt = conn.prepareStatement(sql);
-    rs = pstmt.executeQuery();
     pstmt.setInt(1, startNo);
-    pstmt.setInt(2 , pageSize);*/
+    pstmt.setInt(2 , pageSize);
+    rs = pstmt.executeQuery();
 %>
 
 <table width="1200" align="center" border="1" cellpadding="5" cellspacing="0">

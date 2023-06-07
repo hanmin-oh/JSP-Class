@@ -113,7 +113,7 @@
 //    out.println("현재 화면에 표시되는 글 목록의 시작 인덱스 번호: " + totalPage + "개<br/>");
 //    mysql은 limit를 사용하면 되기 때문에 endNo를 계산할 필요가 없지만 oracle은 limit가 없기 때문에
 //    endNo를 계산해야 한다.
-      endNo = startNo + pageSize - 1;
+    endNo = startNo + pageSize - 1;
       /* 마지막 페이지에 표시되는 글의 개수는 반드시 화면에 표시할 글의 개수(pageSize)만큼 표시되지 않는다.
        한 페이지에 표시할 마지막 글의 인덱스는 전체 글의 개수보다 커지면 안되므로 마지막 글의 인덱스가
        전체 글의 개수보다 커지면 전체 글의 개수로 endNo를 수정한다. */
@@ -126,8 +126,8 @@
     //페이지에 출력할 내용만 얻어오게 수정한다.
     sql = "SELECT * FROM memolist ORDER BY idx DESC limit ?, ?";
     pstmt = conn.prepareStatement(sql);
-    pstmt.setInt(startNo, 1);
-    pstmt.setInt(pageSize, 2);
+    pstmt.setInt(1, startNo);
+    pstmt.setInt(2, pageSize);
     rs = pstmt.executeQuery();
 %>
 
@@ -158,17 +158,14 @@
         <td align="center"><%=sdf.format(rs.getTimestamp("writeDate")) %></td>
         <td><%=rs.getString("ip") %></td>
     </tr>
-
     <%
-        } while(rs.next());
-    } else {
+            } while(rs.next());
+        } else {
     %>
-
     <tr>
         <td colspan="5">
             테이블에 저장된 데이터가 없습니다.
         </td>
-
     <%
         }
     %>
@@ -177,7 +174,6 @@
     <tr>
         <td colspan="5">
             <%
-
                 for(int i = 1 ; i<totalPage ; i++) {
                     if(currentPage == i) {
             %>
