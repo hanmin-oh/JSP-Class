@@ -1,4 +1,4 @@
-<%@page import="com.tjoeun.memoList.DBUtil"%>
+<%@page import="com.tjoeun.dbcpTest.DBUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException"%>
 <%@page import="java.sql.DriverManager"%>

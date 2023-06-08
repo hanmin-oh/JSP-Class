@@ -26,6 +26,7 @@ public class MemberVO {
         this.ip = ip;
     }
 
+
     public String getId() {
         return id;
     }

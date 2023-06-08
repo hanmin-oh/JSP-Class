@@ -1,6 +1,6 @@
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.PreparedStatement"%>
-<%@page import="com.tjoeun.memoList.DBUtil"%>
+<%@page import="com.tjoeun.dbcpTest.DBUtil"%>
 <%@page import="java.sql.Connection"%>
 <%@ page import="java.util.logging.SimpleFormatter" %>
 <%@ page import="java.text.SimpleDateFormat" %>

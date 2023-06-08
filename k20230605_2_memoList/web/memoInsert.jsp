@@ -1,5 +1,5 @@
 <%@page import="java.sql.Connection"%>
-<%@ page import="com.tjoeun.memoList.DBUtil" %>
+<%@ page import="com.tjoeun.dbcpTest.DBUtil" %>
 <%@ page import="java.sql.PreparedStatement" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
