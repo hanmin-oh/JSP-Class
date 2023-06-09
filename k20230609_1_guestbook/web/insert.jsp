@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<form action="inserOk.jsp" method="post">
+<form action="insertOk.jsp" method="post">
   <table width="600" border="1" cellpadding="5" cellspacing="0">
     <tr>
       <th colspan="2">방명록쓰기</th>

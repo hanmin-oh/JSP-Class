@@ -17,7 +17,7 @@ public class GuestbookVO {
     public GuestbookVO() {
     }
 
-    public GuestbookVO(int idx, String name, String password, String memo, Date writeDate, String ip) {
+    public GuestbookVO(String name, String password, String memo,  String ip) {
     }
 
     public int getIdx() {
