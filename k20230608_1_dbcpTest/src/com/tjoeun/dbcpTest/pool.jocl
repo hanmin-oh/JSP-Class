@@ -2,8 +2,8 @@
 		xmlns="http://apache.org/xml/xmlns/jakarta/commons/jocl">
 
 	<object class="org.apache.commons.dbcp.DriverManagerConnectionFactory">
-		<string value="jdbc:mysql://localhost:3306/javaam?useUnicode=true&amp;characterEncoding=UTF-8"/>
-		<string value="root"/>
+		<string value="jdbc:oracle:thin:@localhost:1521:xe"/>
+		<string value="tjoeunit"/>
 		<string value="0000"/>
 	</object>
 	

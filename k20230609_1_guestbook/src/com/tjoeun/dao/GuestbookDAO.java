@@ -35,12 +35,10 @@ public class GuestbookDAO {
 
         // insert("실행할 sql 명령의 id", sql 명령으로 전달할 데이터)
         mapper.insert("insert" , vo);
-
-
     }
 
-    // SelectService 클래스에서 호출되는 mapper를 넘겨받고 guestbook.xml 파일의 테이블에 저장된 전체 글의 개수를
-    // 얻어오는 select sql 명령을 실행하는 메소드
+    /* SelectService 클래스에서 호출되는 mapper를 넘겨받고 guestbook.xml 파일의 테이블에 저장된 전체 글의 개수를
+     얻어오는 select sql 명령을 실행하는 메소드*/
     public int selectCount(SqlMapClient mapper) throws SQLException {
         // queryForObject() : select sql 명령의 실행 결과가 1건일 때 사용한다. => 결과가 Object 클래스로 타입으로 리턴한다.
         // queryForList() : select sql 명령의 실행 결과가 여러건일 때 사용한다. => 결과가 List 인터페이스 타입으로 리턴된다.

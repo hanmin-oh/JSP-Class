@@ -16,8 +16,7 @@ public class InsertService {
     private static InsertService instance = new InsertService();
     //2. 클래스 외부에서 객체를 생성할 수 없도록 기본 생성자의 접근 권한을 private로 변경한다.
 
-    private InsertService() {
-    }
+    private InsertService() {    }
     //3. 자신의 객체를 리턴시키는 정적 메소드를 만든다.
     public static InsertService getInstance () {
         return instance;
@@ -28,15 +27,11 @@ public class InsertService {
     public void insert(GuestbookVO vo) throws SQLException {
         System.out.println("InsertService 클래스의 insert 메소드 실행");
 //        System.out.println(vo);
-        
 //        insert sql 명령을 실행하기 전에 필요한 전처리 작업을 실행한다. 비즈니스 로직을 실행한다.
 //        ibatis mapper를 얻어온다.
 //        mapper에는 데이터베이스에 연결하는 connection과 연결된 후 실행할 sql 명령(guestbook.xml)이 저장되어 있다.
         SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
-        System.out.println();
-
-//
-        
+        System.out.println(mapper);
 //        DAO 클래스의 insert sql 명령을 실행하는 메소드를 호출
         try {
             GuestbookDAO.getInstance().insert(mapper , vo);
@@ -44,9 +39,4 @@ public class InsertService {
             e.printStackTrace();
         }
     }
-
-
-
-
-
 }

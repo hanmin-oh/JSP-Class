@@ -8,7 +8,7 @@
 	
 	<!-- 글 1건을 저장한다.-->
 	<insert id="insert" parameterClass="com.tjoeun.vo.GuestbookVO">
-		insert into guestbook (idx, name, password, memo, ip) values (guestbook_idx_deq.nextval, #name#, #password#, #memo#, #ip#)
+		insert into guestbook (idx, name, password, memo, ip) values (guestbook_idx_seq.nextval, #name#, #password#, #memo#, #ip#)
 	</insert>
 
 	<!-- 전체 글의 개수를 얻어온다. -->

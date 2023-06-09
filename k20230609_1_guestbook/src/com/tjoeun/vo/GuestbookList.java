@@ -18,8 +18,8 @@ public class GuestbookList {
     int endPage = 0; // 페이지 이동 하이퍼링크 또는 버튼의 표시될 마지막 페이지 번호
 
     public GuestbookList() {    }
-    // pageSize, totalCount, currentPage를 인수로 넘겨받아 초기화시키고 나머지 5개의 변수를 초기화 할 값을
-    // 계산해서 초기화시키는 생성자
+    /* pageSize, totalCount, currentPage를 인수로 넘겨받아 초기화시키고 나머지 5개의 변수를 초기화 할 값을
+     계산해서 초기화시키는 생성자*/
     public GuestbookList(int pageSize, int totalCount, int currentPage) {
         this.pageSize = pageSize;
         this.totalCount = totalCount;

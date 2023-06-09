@@ -1,5 +1,9 @@
 package com.tjoeun.dbcpTest;
 
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -24,17 +28,6 @@ public class DBUtil {
         return conn;
     }
 
-    //	Connection을 닫는 메소드
-    public static void close(Connection conn) {
-        if (conn != null) {
-            try {
-                conn.close();
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     //	oracle에 연결하는 Connection을 리턴하는 메소드
     public static Connection getOracleConnection() {
         Connection conn = null;
@@ -54,9 +47,9 @@ public class DBUtil {
     public static Connection getCommonsDBCPConnection() {
         Connection conn = null;
         try {
-            Class.forName("com.mysql.jdbc.Driver"); // mysql 5.x
+            //Class.forName("com.mysql.jdbc.Driver"); // mysql 5.x
             // Class.forName("com.mysql.cj.jdbc.Driver"); // mysql 8.x
-            // Class.forName("oracle.jdbc.driver.OracleDriver"); // oracle
+            Class.forName("oracle.jdbc.driver.OracleDriver"); // oracle
 
             Class.forName("org.apache.commons.dbcp.PoolingDriver"); // commonsDBCP
             String url = "jdbc:apache:commons:dbcp:/pool";
@@ -67,6 +60,29 @@ public class DBUtil {
             System.out.println("데이터베이스 접속 정보가 올바르지 않습니다.");
         }
         return conn;
+    }
+
+    public static Connection getTomcatDBCPConnection() {
+            Connection conn = null;
+        try {
+            Context initContext = new InitialContext();
+            DataSource dataSource = (DataSource) initContext.lookup("java:/comp/env/jdbc/TestDB");
+            conn = dataSource.getConnection();
+        } catch (Exception e) {
+            System.out.println("데이터베이스 접속 정보가 올바르지 않습니다.");
+        }
+            return conn;
+    }
+
+    //	Connection을 닫는 메소드
+    public static void close(Connection conn) {
+        if (conn != null) {
+            try {
+                conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
 }

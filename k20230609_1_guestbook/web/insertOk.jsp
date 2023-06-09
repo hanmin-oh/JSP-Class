@@ -12,9 +12,9 @@
 
 
 <%
-    /*  // 한글 깨짐 방지
+      // 한글 깨짐 방지
       request.setCharacterEncoding("UTF-8");
-      //insert.jsp에서 넘어오는 데이터를 받는다.
+     /* //insert.jsp에서 넘어오는 데이터를 받는다.
       String name = request.getParameter("name");
       String password = request.getParameter("password");
       String memo = request.getParameter("memo");
