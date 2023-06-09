@@ -10,6 +10,7 @@
 <body>
 
 <%
+//	한글 깨짐 방지
 	request.setCharacterEncoding("UTF-8");
 	/*
 //	insert.jsp에서 넘어오는 데이터를 받는다.
@@ -23,27 +24,30 @@
 	vo.setPassword(password);
 	vo.setMemo(memo);
 	vo.setIp(ip);
-	out.println(vo);
+//	out.println(vo);
 	*/
 %>
 
-	<!-- insert.jsp에서 넘어오는 데이터를 받는다. -->
-	<!-- 이전 페이지에서 넘어오는 데이터가 VO 클래스의 필드로 존재하면 useBean 액션 태그를 이용해서 받는다. -->
-	<jsp:useBean id="vo" class="com.tjoeun.vo.GuestbookVO">
-		<jsp:setProperty property="*" name="vo"/>
-	</jsp:useBean>
-	<%-- ${vo} --%>
+<!--
+	useBean 액션 태그로 insert.jsp에서 넘어오는 데이터를 GuestbookVO 클래스 객체에 저장한다.
+	이전 페이지에서 넘어오는 데이터가 GuestbookVO 클래스에 필드로 존재하면 useBean으로 받고 존재하지
+	않으면 request.getParameter()를 이용해서 받는다.
+-->
+<jsp:useBean id="vo" class="com.tjoeun.vo.GuestbookVO">
+	<jsp:setProperty property="*" name="vo"/>
+</jsp:useBean>
+${vo}
 
 <%
 //	VO 클래스 => 글 1건을 기억하는 클래스
-//	List 클래스 => 1페이지 분량의 글 목록과 페이징에 사용할 8개의 변수를 저장하는 클래스
-//	Service 클래스 => sql 명령을 실행전에 전처리 작업을 수행하는 클래스, 비즈니스 로직을 작성하는 클래스
-//	DAO(Data Access Object) => 데이터베이스에 접속해서 sql 명령을 실행하는 클래스
+//	List 클래스 => 1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수를 기억하는 클래스
+//	Service 클래스 => sql 명령 실행전 필요한 전처리 작업을 실행하는 클래스 => 비즈니스 로직을 작성하는 클래스
+//	DAO(Data Access Object) => sql 명령을 실행하는 클래스 => sql 명령 1개당 메소드 1개
 
 //	insert.jsp에서 넘어온 데이터를 guestbook 테이블에 저장한다.
-//	테이블에 저장할 데이터가 저장된 객체(vo)를 전처리 작업을 위해서 Service 클래스로 넘겨서 DAO 클래스에서
-//	sql 명령을 실행하기 전에 필요한 작업이 있으면 실행한다.
-	InsertService.getInatance().insert(vo);
+//	테이블에 저장할 데이터가 저장된 객체(vo)를 전처리 작업을 하기 위해서 Service 클래스로 넘겨서 DAO 클래스에서
+//	sql 명령을 실행하기 전에 필요한 작업이 있다면 실행한다.
+	InsertService.getInstance().insert(vo);
 
 //	테이블에 글 1건을 저장했으면 테이블에 저장된 글을 브라우저에 출력하기 위해서 1페이지 분량의 글 목록을
 //	얻어오는 페이지(list.jsp)로 넘겨준다.
@@ -52,8 +56,6 @@
 
 </body>
 </html>
-
-
 
 
 
