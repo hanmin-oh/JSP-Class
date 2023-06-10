@@ -33,10 +33,7 @@
   // 1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수가 초기화된 객체를 request 영역에 저장한다.
   request.setAttribute("guestbookList" , guestbookList );
 
-   /* textarea에 글을 입력할 때 엔터키를 눌러 줄로 바꿔 입력한 경우 브라우저에 <br/> 태그로
-
-
-   바꿔 출력하기 위해
+   /* textarea에 글을 입력할 때 엔터키를 눌러 줄로 바꿔 입력한 경우 브라우저에 <br/> 태그로 바꿔 출력하기 위해
    request 영역에 "\r\n"을 저장한다. */
   request.setAttribute("enter", "\r\n");
 

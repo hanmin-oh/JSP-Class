@@ -35,6 +35,4 @@ public class SelectService {
         System.out.println(totalCount);
         return guestbookList;
     }
-
-
 }

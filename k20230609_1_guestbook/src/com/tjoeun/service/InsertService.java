@@ -15,7 +15,6 @@ public class InsertService {
     //1. 자기 자신(현재 클래스)의 객체를 기본 생성자를 사용해서 정적 필드로 선언한다.
     private static InsertService instance = new InsertService();
     //2. 클래스 외부에서 객체를 생성할 수 없도록 기본 생성자의 접근 권한을 private로 변경한다.
-
     private InsertService() {    }
     //3. 자신의 객체를 리턴시키는 정적 메소드를 만든다.
     public static InsertService getInstance () {
