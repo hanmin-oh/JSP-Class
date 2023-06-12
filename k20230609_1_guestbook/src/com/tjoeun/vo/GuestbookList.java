@@ -30,14 +30,22 @@ public class GuestbookList {
 
     //pageSize, totalCount, currentPage를 제외한 나머지 변수를 계산해서 초기화시키는 메소드
     private void calculator() {
-        totalPage = (currentPage - 1 ) * pageSize + 1;
+        totalPage = (totalCount - 1 ) / pageSize + 1;
         currentPage = currentPage > totalPage ? totalPage : currentPage;
-        startNo = (currentPage - 1) * pageSize + 1;
+        startNo = (currentPage - 1) * pageSize + 1; //oracle은 0부터 시작하기 때문에 +1해야 한다.
         endNo = startNo + pageSize - 1;
         endNo = endNo > totalCount ? totalCount : endNo;
         startPage = (currentPage -1) / 10 * 10 + 1;
         endPage = startPage + 9;
         endPage = endPage > totalPage ? totalPage : endPage;
+    }
+
+    public ArrayList<GuestbookVO> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<GuestbookVO> list) {
+        this.list = list;
     }
 
     public int getPageSize() {
@@ -118,4 +126,5 @@ public class GuestbookList {
                 ", endPage=" + endPage +
                 '}';
     }
+
 }
