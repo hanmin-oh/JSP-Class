@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjoeun.vo.CategoryVO">
+
+	<!-- id: sql 명령을 식별한다. -->
+	<!-- parameterType: sql 명령으로 전달되는 데이터의 타입을 적는다. -->
+	<!-- resultType: sql 명령 실행결과 리턴되는 데이터의 타입을 적는다. -->
+
+	<!--
+			 - 시퀀스이름.nextval : 시퀀스 값을 1증가 시킨다.
+			 - 시퀀스이름.currval : 현재 시퀀스 값을 의미한다.
+			 - ibatis는 parameterClass로 지정된 객체 형태로 sql 명령에 넘어온 데이터를 #과 # 사이에 코딩했지만
+			mybatis는 parameterType으로 지정된 객체 형태로 sql 명령에 넘어온 데이터를 #{와 } 사이에 코딩한다.
+			 - 메인 카테고리는 같은 카테고리 그룹 내부에서 맨 위에 위치해야 하므로 레벨(lev)과 같은 그룹에서 카테고리
+			 출력 순서를 의미하는 seq는 0으로 저장한다.
+		-->
+
+	<insert id="insert" parameterType="vo">
+		insert into CATEGORY (idx, CATEGORY, gup, lev, seq)
+		values (category_idx_seq.nextval , #{category}, category_idx_seq.currval, 0, 0)
+	</insert>
+
+	<select id="selectList" resultType="vo">
+		select * from category order by gup desc, seq
+	</select>
+
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

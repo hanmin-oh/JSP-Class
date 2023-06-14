@@ -101,22 +101,62 @@ public class SelectService {
         GuestbookList guestbookList = null;
         GuestbookDAO dao = GuestbookDAO.getInstance();
         int pageSize = 10;
-        // 내용에 검색어(내용)을 포함하는 글의 개수를 얻어온다.
         int totalCount = dao.selectCountName(mapper , item);
-        System.out.println(totalCount);
         guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
-//        startNo, endNo만 sql 명령으로 넘겨줄 때는 데이터 타입이 같기 때문에 HashMap을 이용했지만
-//        category, item을 같이 넘겨야 하므로 데이터 타입이 다르기 때문에 별도의 클래스를 만들고
-//        클래스 객체에 데이터를 담아서 넘겨줘야 한다.
+
         Param param = new Param();
         param.setStartNo(guestbookList.getStartNo());
         param.setEndNo(guestbookList.getEndNo());
         param.setItem(item);
-        System.out.println(param);
-
-//        내용에 검색어를 포함하는 1페이지 분량의 글을 얻어와서 GuestbookList 클래스의 ArrayList에 저장한다.
         guestbookList.setList(dao.selectListName(mapper, param));
+        return guestbookList;
+    }
+
+    public GuestbookList selectListMemoName(int currentPage, String item) throws SQLException {
+        System.out.println("SelectService 클래스의 selectListMemoName() 메소드 실행");
+        SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
+        GuestbookList guestbookList = null;
+        GuestbookDAO dao = GuestbookDAO.getInstance();
+
+        int pageSize = 10;
+        int totalCount = dao.selectCountMemoName(mapper , item);
+        System.out.println(totalCount);
+        guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
+
+        Param param = new Param();
+        param.setStartNo(guestbookList.getStartNo());
+        param.setEndNo(guestbookList.getEndNo());
+        param.setItem(item);
+        guestbookList.setList(dao.selectListMemoName(mapper, param));
         System.out.println(guestbookList);
         return guestbookList;
     }
+
+//    list.jsp에서 호출되는 브라우저에 표시할 페이지 번호와 카테고리(내용, 이름, 내용+이름)을 넘겨받고 mapper를
+//    얻어온 후 GuestbookDAO 클래스의 1페이지 분량의 글 목록을 얻어오는 select sql 명령을 실행하는 메소드를 호출하는
+//    메소드
+    public GuestbookList selectListMulti(int currentPage , String category, String item) throws SQLException {
+        System.out.println("SelectService 클래스의 selectListMulti() 메소드 실행");
+        SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
+        GuestbookList guestbookList = null;
+        GuestbookDAO dao = GuestbookDAO.getInstance();
+
+        int pageSize = 10;
+//        카테고리에 따른 검색어를 포함하는 글의 개수를 얻어온다.
+//        카테고리에 따른 검색어가 포함되었나 조건을 세워야 하기 때문에 Param 클래스 객체를 사용한다.
+        Param param = new Param();
+        param.setCategory(category);
+        param.setItem(item);
+        int totalCount = dao.selectCountMulti(mapper, param);
+
+        guestbookList = new GuestbookList(pageSize, totalCount, currentPage);
+        param.setStartNo(guestbookList.getStartNo());
+        param.setEndNo(guestbookList.getEndNo());
+        guestbookList.setList(dao.selectListMulti(mapper, param));
+        System.out.println(guestbookList);
+        return guestbookList;
+    }
+
 }
+
+

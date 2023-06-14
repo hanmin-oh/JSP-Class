@@ -98,4 +98,28 @@ public class GuestbookDAO {
         System.out.println("GuestbookDAO 클래스의 selectListName() 메소드 실행");
         return (ArrayList<GuestbookVO>) mapper.queryForList("selectListName" , param);
     }
+
+    public int selectCountMemoName(SqlMapClient mapper, String item) throws SQLException {
+        System.out.println("GuestbookDAO 클래스의 selectCountMemoName() 메소드 실행");
+        return (int) mapper.queryForObject("selectCountMemoName" , item);
+    }
+
+    public ArrayList<GuestbookVO> selectListMemoName(SqlMapClient mapper, Param param) throws SQLException {
+        System.out.println("GuestbookDAO 클래스의 selectListMemoName() 메소드 실행");
+        return (ArrayList<GuestbookVO>) mapper.queryForList("selectListMemoName" , param);
+    }
+
+//    SelectService 클래스에서 호출되는 mapper와 카테고리 및 검색어가 저장된 Param 클래스 객체를 넘겨받고 xml파일의
+//    텡블에 저장된 전체 글 중에서 카테고리에 따른 검색어를 포함하는 글의 개수를 얻어오는 select sql 명령을
+//    실행하는 메소드
+    public int selectCountMulti(SqlMapClient mapper, Param param) throws SQLException {
+        System.out.println("GuestbookDAO 클래스의 selectCountMulti() 메소드 실행");
+        return (int) mapper.queryForObject("selectCountMulti" , param);
+    }
+
+    public ArrayList<GuestbookVO> selectListMulti(SqlMapClient mapper, Param param) throws SQLException {
+        System.out.println("GuestbookDAO 클래스의 selectListMulti() 메소드 실행");
+        return (ArrayList<GuestbookVO>) mapper.queryForList("selectListMulti" , param);
+    }
+
 }
