@@ -91,40 +91,40 @@
                         <%
                             if (guestbookList.getCurrentPage() > 1) {
                         %>
-                        <button
-                                class='button button1'
-                                type="button"
-                                title="첫 페이지로 이동합니다."
-                                onclick="location.href='?currentPage=1'"
-                        >처음</button>
+                                <button
+                                        class='button button1'
+                                        type="button"
+                                        title="첫 페이지로 이동합니다."
+                                        onclick="location.href='?currentPage=1'"
+                                >처음</button>
                         <%
                             } else {
                         %>
-                        <button
-                                class='button button2'
-                                type="button"
-                                disabled="disabled"
-                                title="이미 첫 페이지 입니다."
-                        >처음</button>
+                                <button
+                                        class='button button2'
+                                        type="button"
+                                        disabled="disabled"
+                                        title="이미 첫 페이지 입니다."
+                                >처음</button>
                         <%
                             }
                             if (guestbookList.getStartPage() > 1) {
                         %>
-                        <button
-                                class='button button1'
-                                type="button"
-                                title="이전 10페이지로 이동합니다."
-                                onclick="location.href='?currentPage=<%=guestbookList.getStartPage() - 1%>'"
-                        >이전</button>
+                                <button
+                                        class='button button1'
+                                        type="button"
+                                        title="이전 10페이지로 이동합니다."
+                                        onclick="location.href='?currentPage=<%=guestbookList.getStartPage() - 1%>'"
+                                >이전</button>
                         <%
                             } else {
                         %>
-                        <button
-                                class='button button2'
-                                type="button"
-                                disabled="disabled"
-                                title="이미 첫 10페이지 입니다."
-                        >이전</button>
+                                <button
+                                        class='button button2'
+                                        type="button"
+                                        disabled="disabled"
+                                        title="이미 첫 10페이지 입니다."
+                                >이전</button>
                         <%
                             }
                             for (int i = guestbookList.getStartPage(); i<=guestbookList.getEndPage(); i++) {
@@ -138,40 +138,40 @@
                             }
                             if (guestbookList.getEndPage() < guestbookList.getTotalPage()) {
                         %>
-                        <button
-                                class='button button1'
-                                type="button"
-                                title="다음 10페이지로 이동합니다."
-                                onclick="location.href='?currentPage=<%=guestbookList.getEndPage() + 1%>'"
-                        >다음</button>
+                                <button
+                                        class='button button1'
+                                        type="button"
+                                        title="다음 10페이지로 이동합니다."
+                                        onclick="location.href='?currentPage=<%=guestbookList.getEndPage() + 1%>'"
+                                >다음</button>
                         <%
                             } else {
                         %>
-                        <button
-                                class='button button2'
-                                type="button"
-                                disabled="disabled"
-                                title="이미 마지막 10페이지 입니다."
-                        >다음</button>
+                                <button
+                                        class='button button2'
+                                        type="button"
+                                        disabled="disabled"
+                                        title="이미 마지막 10페이지 입니다."
+                                >다음</button>
                         <%
                             }
                             if (guestbookList.getCurrentPage() < guestbookList.getTotalPage()) {
                         %>
-                        <button
-                                class='button button1'
-                                type="button"
-                                title="마지막 페이지로 이동합니다."
-                                onclick="location.href='?currentPage=<%=guestbookList.getTotalPage()%>'"
-                        >마지막</button>
+                                <button
+                                        class='button button1'
+                                        type="button"
+                                        title="마지막 페이지로 이동합니다."
+                                        onclick="location.href='?currentPage=<%=guestbookList.getTotalPage()%>'"
+                                >마지막</button>
                         <%
                             } else {
                         %>
-                        <button
-                                class='button button2'
-                                type="button"
-                                disabled="disabled"
-                                title="이미 마지막 페이지 입니다."
-                        >마지막</button>
+                                <button
+                                        class='button button2'
+                                        type="button"
+                                        disabled="disabled"
+                                        title="이미 마지막 페이지 입니다."
+                                >마지막</button>
                         <%
                             }
                         %>

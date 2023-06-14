@@ -5,8 +5,8 @@
 </head>
 <body>
 
-<form action="insertOk.jsp" method="post">
-  <table width="600" border="1" cellpadding="5" cellspacing="0">
+<form action="insertOK.jsp" method="post">
+  <table align="center" width="600" border="1" cellpadding="5" cellspacing="0">
     <tr>
       <th colspan="2">방명록쓰기</th>
     </tr>
@@ -27,8 +27,6 @@
       </td>
     </tr>
     <tr>
-
-
       <th>
         <label for="memo">메모</label>
       </th>

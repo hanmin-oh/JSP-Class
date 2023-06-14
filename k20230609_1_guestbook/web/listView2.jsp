@@ -37,7 +37,7 @@
      ②jstl if문 => c:if => else를 사용할 수 없다. => else 처리가 필요하면 조건을 반대로 해서 별도의 if문 만들어 사용
      <c:if test="${조건식}">
         조건식이 참일 경우 실행할 문장
-    </c:if>
+     </c:if>
 
      ③jstl 일반 for문 => 초기치 부터 최종치 까지 증가치 만큼 증가하며 반복한다.
         => 증가치는 생략하면 1이 기본값으로 사용되고 반드시 양수만 사용해야 한다.
@@ -94,8 +94,8 @@
                                                     date.date != vo.writeDate.date}">
                                         <fmt:formatDate value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"></fmt:formatDate>
                                     </c:if>             --%>
-                                <fmt:formatDate var="today" value="${date}" pattern="yyyy.MM.dd(E)"/>
-                                <fmt:formatDate var="day" value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"/>
+                                <fmt:formatDate var="today" value="${date}" />
+                                <fmt:formatDate var="day" value="${vo.writeDate}" />
                                 <c:if test="${today == day}">
                                     <fmt:formatDate value="${vo.writeDate}" pattern="HH:mm"></fmt:formatDate>
                                 </c:if>
@@ -104,15 +104,32 @@
                                 </c:if>
                                 에 남긴 글
                                 <div style="float: right;">
-                                    <input class="button3" type="button" value="수정"/>
-                                    <input class="button3" type="button" value="삭제"/>
+                                    <input
+                                            class="button button1"
+                                            type="button"
+                                            value="수정"
+                                            onclick="location.href='selectByIdx.jsp?idx=${vo.idx}&currentPage=${guestbookList.currentPage}&job=update'">
+                                    <input
+                                            class="button button1"
+                                            type="button"
+                                            value="삭제"
+                                            onclick="location.href='selectByIdx.jsp?idx=${vo.idx}&currentPage=${guestbookList.currentPage}&job=delete'">
                                 </div>
                                 <br/>
                                 <%-- 메모에 태그가 먹지않도록 줄이 바귀도록 replace 함수를 적용한다. --%>
                                 <c:set var="memo" value="${fn:replace(vo.memo, '<' , '&lt;')}"></c:set>
                                 <c:set var="memo" value="${fn:replace(memo, '>' , '&gt;')}"></c:set>
                                 <c:set var="memo" value="${fn:replace(memo, enter, '<br/>')}"></c:set>
-                                ${memo}
+                                <%--   내용에 포함된 검색어를 강조해서 표시한다.   --%>
+                                    <c:if test="${category == null || category == '이름'}">
+                                        ${memo}
+                                    </c:if>
+                                    <c:if test="${category == '내용' || category == '내용 + 이름'}">
+                                        <c:set var="search"
+                                               value="<span style='color: lightgreen; font-weight: bold; background-color: black;'
+                                                >${item}</span>"/>
+                                        ${fn:replace(memo, item, search)}
+                                    </c:if>
                                 <br/>
                             </td>
                         </tr>
@@ -154,63 +171,79 @@
             </c:if>
             <c:if test="${guestbookList.startPage <= 1 }">
                 <button
-                        class='button button2'
-                        type="button"
-                        disabled="disabled"
-                        title="이미 첫 10페이지 입니다."
+                    class='button button2'
+                    type="button"
+                    disabled="disabled"
+                    title="이미 첫 10페이지 입니다."
                 >이전</button>
             </c:if>
             <c:forEach var="i" begin="${guestbookList.startPage}" end="${guestbookList.endPage}">
                 <c:if test="${guestbookList.currentPage == i }">
                     <button
-                            class='button button2'
-                            type='button'
-                            disabled='disabled'
+                        class='button button2'
+                        type='button'
+                        disabled='disabled'
                     >${i}</button>
                 </c:if>
                 <c:if test="${guestbookList.currentPage != i}">
                     <button
-                            class='button button1'
-                            type='button'
-                            title="${i}페이지로 이동합니다."
-                            onclick="location.href='?currentPage=${i}'"
+                        class='button button1'
+                        type='button'
+                        title="${i}페이지로 이동합니다."
+                        onclick="location.href='?currentPage=${i}'"
                     >${i}</button>
                 </c:if>
             </c:forEach>
             <c:if test="${guestbookList.endPage < guestbookList.totalPage}">
                 <button
-                        class='button button1'
-                        type="button"
-                        title="다음 10페이지로 이동합니다."
-                        onclick="location.href='?currentPage=<%=guestbookList.getEndPage() + 1%>'"
+                    class='button button1'
+                    type="button"
+                    title="다음 10페이지로 이동합니다."
+                    onclick="location.href='?currentPage=<%=guestbookList.getEndPage() + 1%>'"
                 >다음</button>
             </c:if>
             <c:if test="${guestbookList.endPage >= guestbookList.totalPage}">
                 <button
-                        class='button button2'
-                        type="button"
-                        disabled="disabled"
-                        title="이미 마지막 10페이지 입니다."
+                    class='button button2'
+                    type="button"
+                    disabled="disabled"
+                    title="이미 마지막 10페이지 입니다."
                 >다음</button>
             </c:if>
             <c:if test="${guestbookList.currentPage < guestbookList.totalPage}">
                 <button
-                        class='button button1'
-                        type="button"
-                        title="마지막 페이지로 이동합니다."
-                        onclick="location.href='?currentPage=<%=guestbookList.getTotalPage()%>'"
+                    class='button button1'
+                    type="button"
+                    title="마지막 페이지로 이동합니다."
+                    onclick="location.href='?currentPage=<%=guestbookList.getTotalPage()%>'"
                 >마지막</button>
             </c:if>
             <c:if test="${guestbookList.currentPage >= guestbookList.totalPage}">
                 <button
-                        class='button button2'
-                        type="button"
-                        disabled="disabled"
-                        title="이미 마지막 페이지 입니다."
+                    class='button button2'
+                    type="button"
+                    disabled="disabled"
+                    title="이미 마지막 페이지 입니다."
                 >마지막</button>
             </c:if>
         </td>
     </tr>
+    <%--    카테고리별 검색어를 입력받는다.    --%>
+    <tr>
+        <td align="center">
+            <form action="list.jsp" method="post">
+                <select name="catagory" style="width: 100px; height: 30px;">
+                    <option>내용</option>
+                    <option>이름</option>
+                    <option>내용+이름</option>
+                </select>
+                <input type="text" name="item" style="width: 350px; height: 30px; padding-left: 10px"/>
+                <input class='button button1' type="submit" value="검색" style="width: 100px; height: 30px;">
+            </form>
+
+        </td>
+    </tr>
+
     <tr>
         <td align="right">
             <input class="button button1" value="글쓰기" onclick="location.href='insert.jsp'"/>

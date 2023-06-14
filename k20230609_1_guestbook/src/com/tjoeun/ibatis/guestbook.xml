@@ -26,6 +26,53 @@
 		  )where runm >= #startNo#
 		]]>
 	</select>
+
+	<!-- 글 1건을 얻어온다. -->
+	<select id="selectByIdx" parameterClass="int" resultClass="vo">
+		SELECT * FROM Guestbook WHERE idx = #idx#
+	</select>
+
+	<!-- 글 1건을 삭제한다. -->
+	<delete id="delete" parameterClass="int">
+		delete from guestbook where idx = #idx#
+	</delete>
+
+	<!-- 글 1건을 수정한다. -->
+	<update id="update" parameterClass="vo">
+		update GUESTBOOK set memo = #memo# where IDX = #idx#
+	</update>
+
+	<!-- 메모에 검색어에 해당하는 글 개수를 얻어온다.. -->
+	<select id="selectCountMemo" parameterClass="String" resultClass="int">
+		select count(*) from guestbook where memo like '%'||#item#||'%'
+	</select>
+
+	<!-- memo 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectListMemo" parameterClass="param" resultClass="vo">
+		<![CDATA[
+			select * from (
+				select rownum rnum, GG.* from (
+					select * from GUESTBOOK where MEMO like '%'||#item#||'%' order by IDX desc
+			  ) GG where rownum <= #endNo#
+		  ) where rnum >= #startNo#
+		]]>
+	</select>
+
+	<!-- 이름에 검색어에 해당하는 글 개수를 얻어온다.. -->
+	<select id="selectCountName" parameterClass="String" resultClass="int">
+		select count(*) from guestbook where NAME like '%'||#item#||'%'
+	</select>
+
+	<!-- memo 필드에 검색어가 포함된 1페이지 분량의 글 목록을 얻어온다. -->
+	<select id="selectListName" parameterClass="param" resultClass="vo">
+		<![CDATA[
+			select * from (
+				select rownum rnum, GG.* from (
+					select * from GUESTBOOK where NAME like '%'||#item#||'%' order by IDX desc
+			  ) GG where rownum <= #endNo#
+		  ) where rnum >= #startNo#
+		]]>
+	</select>
 </sqlMap>
 
 

@@ -2,7 +2,11 @@ table{
     background-color: antiquewhite;
     margin-bottom: 5px;
 }
-
+span {
+    color: lightgreen;
+    font-weight: bold;
+    background-color: black;
+}
 .button {
     background-color: #4CAF50; /* Green */
     border: none;
@@ -39,9 +43,6 @@ table{
 
 .button3 {
     display: flex;
-
     justify-content: flex-end;
-
-
-
 }
+

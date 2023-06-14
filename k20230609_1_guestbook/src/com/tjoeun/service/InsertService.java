@@ -30,7 +30,6 @@ public class InsertService {
 //        ibatis mapper를 얻어온다.
 //        mapper에는 데이터베이스에 연결하는 connection과 연결된 후 실행할 sql 명령(guestbook.xml)이 저장되어 있다.
         SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
-        System.out.println(mapper);
 //        DAO 클래스의 insert sql 명령을 실행하는 메소드를 호출
         try {
             GuestbookDAO.getInstance().insert(mapper , vo);
