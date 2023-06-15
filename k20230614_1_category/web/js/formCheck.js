@@ -42,7 +42,6 @@ $( () => {
         //     category라는 id 속성이 지정된 텍스트 박스로 포커스를 옮겨준다.
             $('#category').focus();
         } else {
-            alert($('#category').val() + '이(가) 카테고리에 입력되었습니다. ');
         }
     });
 
@@ -74,12 +73,48 @@ $( () => {
                let categoryName = $.trim($('.sub_form' + index).find('span').text());
                alert(categoryName + '서브 카테고리는 반드시 입력해야 합니다.');
                event.preventDefault();
-               $('sub_form' + index)[0].reset();
+               $('sub_category' + index)[0].val('');
                $('sub_category' + index).focus();
            }
         });
     });
-
 });
+
+// 수정 버튼이 클릭되면 update.jsp로 폼에 입력된 데이터로 전송하는 함수
+function mySubmitUpdate(obj) {
+    if (!obj.category.value || obj.category.trim().length == 0) {
+        alert('수정할 카테고리를 입력하세요');
+        obj.category.value = '';
+        obj.category.focus();
+    } else{
+    // 인수로 넘어온 폼의 action 페이지를 변경한다.
+        obj.action = 'update.jsp';
+    // action 페이지를 호출하고 폼의 데이터를 전송한다.
+        obj.submit();
+    }
+
+}
+function mySubmitReply(obj) {
+    obj.action = 'reply.jsp';
+    obj.submit();
+}
+
+function mySubmitRestore(obj) {
+        obj.action = 'restore.jsp';
+        obj.submit();
+}
+
+function mySubmitDelete(obj) {
+        obj.action = 'delete.jsp';
+        obj.submit();
+}
+
+function mySubmitReport(obj) {
+    obj.action = 'report.jsp';
+    obj.submit();
+}
+
+
+
 
 

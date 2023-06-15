@@ -24,7 +24,47 @@
 		select * from category order by gup desc, seq
 	</select>
 
-	
+	<!-- 같은 카테고리 그룹에서 카테고리 출력 순서를 조정하기 위해 seq를 수정한다. -->
+	<update id="increment" parameterType="java.util.HashMap">
+		<!-- gup, seq는 category 테이블의 필드이고 #{gup}, #{seq}는 HashMap에 저장되서 넘어오는 데이터의 key이다.  -->
+		update category set seq = seq + 1 where gup = #{gup} and seq >= #{seq}
+	</update>
+
+	<insert id="reply" parameterType="vo">
+		insert into CATEGORY (idx, CATEGORY, gup, lev, seq)
+		values (category_idx_seq.nextval , #{category}, #{gup}, #{lev}, #{seq} )
+	</insert>
+
+	<!-- 카테고리 1건을 삭제한다. -->
+	<delete id="delete" parameterType="int">
+		delete from category where idx = #{idx}
+	</delete>
+
+	<!-- 삭제 또는 수정할 카테고리 1건을 얻어온다. -->
+	<select id="selectByIdx" parameterType="int" resultType="vo">
+		select * from category where idx = #{idx}
+	</select>
+
+	<update id="deleteMessage" parameterType="int">
+		UPDATE CATEGORY SET category = '삭제된 카테고리 입니다' WHERE idx = #{idx}
+	</update>
+
+	<update id="deleteCheck" parameterType="int">
+		UPDATE CATEGORY SET deleteCheck = 'YES' WHERE idx = #{idx}
+	</update>
+
+	<update id="deleteRestore" parameterType="int">
+		UPDATE CATEGORY SET deleteCheck = 'NO' WHERE idx = #{idx}
+	</update>
+
+	<update id="update" parameterType="vo">
+		UPDATE CATEGORY SET CATEGORY = #{category} WHERE idx = #{idx}
+	</update>
+
+	<update id="deleteReport" parameterType="int">
+		UPDATE CATEGORY SET deleteReport = deleteReport + 1 WHERE idx = #{idx}
+	</update>
+
 </mapper>
 
 

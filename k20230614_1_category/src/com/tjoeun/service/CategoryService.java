@@ -6,7 +6,7 @@ import com.tjoeun.vo.CategoryList;
 import com.tjoeun.vo.CategoryVO;
 import org.apache.ibatis.session.SqlSession;
 
-import javax.websocket.Session;
+import java.util.HashMap;
 
 public class CategoryService {
 
@@ -24,9 +24,9 @@ public class CategoryService {
         System.out.println("CategoryService의 insert() 메소드 실행");
         SqlSession mapper = MySession.getSession();
 
-        //전처리
+//        전처리 ( 이 메소드에선 전처리X)
 
-        //CategoryDAO 클래스의 insert sql 명령을 실행하는 메소드를 효출한다.
+//        CategoryDAO 클래스의 insert sql 명령을 실행하는 메소드를 효출한다.
         CategoryDAO.getInstance().insert(mapper , vo);
 
 //        실행한 sql 명령이 테이블을 변경하는 insert, delete, update sql 명령일 경우 작업 결과를 테이블에 반영시키기 위해
@@ -42,14 +42,116 @@ public class CategoryService {
     public CategoryList selectList() {
         System.out.println("CategoryService의 selectList()메소드 실행");
         SqlSession mapper = MySession.getSession();
+        System.out.println(mapper);
 
 //        전체 카테고리 목록을 저장해서 리턴시킬 객체를 선언한다.
         CategoryList categoryList = new CategoryList();
 //        테이블에서 얻어온 전체 카테고리 목록을 CategoryList 클래스의 ArrayList에 저장한다.
         categoryList.setList(CategoryDAO.getInstance().selectList(mapper));
         System.out.println(categoryList);
-
         mapper.close();
         return categoryList;
+    }
+
+//    reply.jsp에서 호출되는 테이블에 저장할 서브 카테고리 정보가 저장된 객체를 넘겨받고 mapper를 얻어온 후 CategoryDAO
+//    클래스의 메인 카테고리를 테이블에 저장하는 insert sql 명령을 실행하는 메소드를 호출하는 메소드
+    public void reply(CategoryVO vo) {
+        System.out.println("CategoryService의 reply()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+        CategoryDAO dao = CategoryDAO.getInstance();
+
+//    ※전처리
+//      ①서브 카테고리가 삽입될 위치를 결정하기 위해서 lev와 seq를 각각 1씩 증가시킨다.
+//        ⑴서브 카테고리의 레벨은 부모 카테고리의 레벨보다 1 크다.
+        vo.setLev(vo.getLev() + 1);
+//        ⑵서브 카테고리의 카테고리가 부모 카테고리 바로 아래에 나와야 한다.
+        vo.setSeq(vo.getSeq() + 1);
+
+//      ②서브 카테고리를 위치에 맞게 삽입하기 위해서 같은 카테고리 그룹(gup)의 카테고리 출력 순서(seq)를 조정(수정)하는
+//      메소드를 실행한다.
+        HashMap<String , Integer> hmap = new HashMap<>();
+        hmap.put("gup" , vo.getGup());
+        hmap.put("seq" , vo.getSeq());
+        dao.increment(mapper , hmap); // update
+
+//      ③서브 카테고리가 저장될 위치가 확보되면 서브 카테고리를 테이블에 저장하는 메소드를 호출한다.
+        dao.reply(mapper , vo);
+
+
+
+        mapper.commit();
+        mapper.close();
+    }
+
+//    delete.jsp에서 호출되는 삭제할 카테고리 번호를 넘겨받고 mapper를 얻어온 후 CategoryDAO 클래스의 메인 카테고리를
+//     테이블에 저장하는 delete sql 명령을 실행하는 메소드를 호출하는 메소드
+    public void delete(int idx) {
+        System.out.println("CategoryService의 delete()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().delete(mapper , idx);
+
+        mapper.commit();
+        mapper.close();
+
+    }
+
+//    delete.jsp 또는 update.jsp에서 호출되는 삭제 또는 수정할 카테고리 번호를 넘겨받고 mapper를 얻어온 후 CategoryDAO
+//    클래스의 삭제 또는 수정할 카테고리 건을 얻어오는 select sql 명령을 실행하는 메소드를 호출하는 메소드
+    public CategoryVO selectByIdx(int idx) {
+        System.out.println("CategoryService의 selectByIdx()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryVO vo = CategoryDAO.getInstance().selectByIdx(mapper , idx);
+        System.out.println(vo);
+        mapper.close();
+
+        return vo;
+    }
+
+    public void deleteMessage(int idx) {
+        System.out.println("CategoryService의 deleteMessage()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().deleteMessage(mapper , idx);
+        mapper.commit();
+        mapper.close();
+    }
+
+    public void deleteCheck(int idx) {
+        System.out.println("CategoryService의 deleteCheck()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().deleteCheck(mapper , idx);
+        mapper.commit();
+        mapper.close();
+
+    }
+
+    public void deleteRestore(int idx) {
+        System.out.println("CategoryService의 deleteRestore()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().deleteRestore(mapper , idx);
+        mapper.commit();
+        mapper.close();
+    }
+
+    public void update(CategoryVO vo) {
+        System.out.println("CategoryService의 update()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().update(mapper , vo);
+        mapper.commit();
+        mapper.close();
+    }
+
+    public void deleteReport(int idx) {
+        System.out.println("CategoryService의 deleteReport()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+
+        CategoryDAO.getInstance().deleteReport(mapper , idx);
+        mapper.commit();
+        mapper.close();
     }
 }
