@@ -32,7 +32,7 @@ public class FreeboardService {
         FreeboardDAO dao = FreeboardDAO.getInstance();
 
         int pageSize = 10;
-        int totalCount = 0;
+        int totalCount = dao.selectCount(mapper);
         System.out.println(totalCount);
 
         FreeboardList freeboardList = new FreeboardList(pageSize, totalCount, currentPage);
@@ -41,6 +41,7 @@ public class FreeboardService {
         hmap.put("endNo", freeboardList.getEndNo());
         freeboardList.setList(dao.selectList(mapper, hmap));
         System.out.println(freeboardList);
+
         mapper.close();
         return freeboardList;
 

@@ -89,7 +89,7 @@
                         <%-- 오늘 입력된 글은 시간만 어제 이전에 입력된 글은 날짜만 출력한다. --%>
                             <c:if test="${date.year == vo.writeDate.year && date.month == vo.writeDate.month &&
                                 date.date == vo.writeDate.date}">
-                                <fmt:formatDate value="${vo.wirteDate}" pattern="a h:mm:ss"></fmt:formatDate>
+                                <fmt:formatDate value="${vo.writeDate}" pattern="a h:mm:ss"></fmt:formatDate>
                             </c:if>
                             <c:if test="${date.year != vo.writeDate.year && date.month != vo.writeDate.month &&
                                 date.date != vo.writeDate.date}">

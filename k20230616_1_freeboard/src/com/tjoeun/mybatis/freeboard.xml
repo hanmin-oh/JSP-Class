@@ -8,20 +8,20 @@
 		values (freeboard_idx_seq.nextval, #{name}, #{password}, #{subject}, #{content}, #{notice}, #{ip})
 	</insert>
 
-	<select id="selectCount" resultType="vo">
+	<select id="selectCount" resultType="int">
 		select count(*) from freeboard
 	</select>
 
+	<!-- 1페이지 분량의 메인글을 얻어온다. -->
 	<select id="selectList" parameterType="java.util.HashMap" resultType="vo">
 		<![CDATA[
 		select * from (
-		  select rownum runm, TT.* from (
-											select * from freeboard order by IDX desc
-										) TT where rownum <= #endNo#
-	  )where runm >= #startNo#
+						  select rownum runm, TT.* from (
+															select * from freeboard order by IDX desc
+														) TT where rownum <= #{endNo}
+					  )where runm >= #{startNo}
 		]]>
 	</select>
-
 
 </mapper>
 
