@@ -24,13 +24,13 @@ ${vo}
   //삭제한 카테고리 이름을 삭제 완료 메시지에 표시하기 위해서 삭제하기 전에 삭제할 카테고리를 얻어온다.
   CategoryService service = CategoryService.getInstance();
 
-  CategoryVO original = service.selectByIdx(vo.getIdx());
+  //CategoryVO original = service.selectByIdx(vo.getIdx());
 
   service.update(vo);
 
 //  카테고리 목록을 얻어오는 페이지를 호출한다.
   out.println("<script>");
-  out.println("alert('" + original.getCategory() +" 카테고리를" + vo.getCategory() + "카테고리로 복구 완료')");
+  //out.println("alert('" + original.getCategory() +" 카테고리를" + vo.getCategory() + "카테고리로 수정 완료')");
   out.println("location.href='list.jsp'");
   out.println("</script>");
 

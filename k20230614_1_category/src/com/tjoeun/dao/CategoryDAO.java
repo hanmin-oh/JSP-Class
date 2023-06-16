@@ -82,4 +82,25 @@ public class CategoryDAO {
         System.out.println("CategoryDAO 클래스의 deleteReport() 메소드 실행");
         mapper.update("deleteReport" , idx);
     }
+
+    public ArrayList<CategoryVO> deleteList(SqlSession mapper, CategoryVO vo) {
+
+        return (ArrayList<CategoryVO>) mapper.selectList("deleteList", vo);
+    }
+
+    public void deleteAll(SqlSession mapper) {
+        System.out.println("CategoryDAO 클래스의 deleteAll() 메소드 실행");
+        mapper.delete("deleteAll");
+    }
+
+    public ArrayList<CategoryVO> selectGup(SqlSession mapper, int gup) {
+        System.out.println("CategoryDAO 클래스의 selectGup() 메소드 실행");
+        return (ArrayList<CategoryVO>) mapper.selectList("selectGup" , gup);
+    }
+
+    public void reSeq(SqlSession mapper, HashMap<String, Integer> hmap) {
+        System.out.println("CategoryDAO 클래스의 reSeq() 메소드 실행");
+        mapper.update("reSeq" , hmap);
+    }
+
 }

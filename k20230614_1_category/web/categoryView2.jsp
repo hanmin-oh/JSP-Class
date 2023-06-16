@@ -43,7 +43,7 @@
                     <c:forEach var="i" begin="1" end="${vo.lev}" step="1">
                         &nbsp;&nbsp;&nbsp;&nbsp;
                     </c:forEach>
-                    <img src="./images/1.jpg" style="width: 35px">
+                    <img src="images/1.jpg" width="35px;"/>
                 </c:if>
                 <c:if test="${vo.deleteReport <= 10}">
                     <c:if test="${vo.deleteCheck == 'YES'}"> <%-- 삭제된 카테고리인가? --%>
@@ -57,20 +57,17 @@
                     신고된 카테고리입니다.
                 </c:if>
             </div>
-            <div class="col-md-2">
-                <c:if test="${vo.deleteReport > 10}">
+            <c:if test="${vo.deleteReport > 10}">
+                <div class="col-md-3">
                     <input class="sub_category form-control" type="text" name="category" disabled="disabled"/>
-                </c:if>
-                <c:if test="${vo.deleteReport <= 10}">
+                </div>
+            </c:if>
+            <c:if test="${vo.deleteReport <= 10}">
+                <div class="col-md-3">
                     <input class="sub_category form-control" type="text" name="category"/>
-                </c:if>
-            </div>
-            <div class="col-md-5">
-                <c:if test="${vo.deleteReport <= 10}">
-                    <div>
-                        <input class="sub_category form-control" type="text" name="category"/>
-                    </div>
-                    <input class="btn btn-outline-primary" type="button" value="서브 카테고리 만들기"/>
+                </div>
+                <div class="col-md-5">
+                    <input class="btn btn-outline-primary" type="submit" value="서브 카테고리 만들기"/>
                         <c:if test="${vo.deleteCheck == 'YES'}"> <%-- 삭제된 카테고리인가? --%>
                             <input class="btn btn-danger" type="button" value="삭제" disabled="disabled"/>
                             <input class="btn btn-outline-success" type="button" value="복구"
@@ -81,16 +78,15 @@
                                    onclick="mySubmitDelete(${formName})"/>
                             <input class="btn btn-success" type="button" value="복구" disabled="disabled"/>
                         </c:if>
-                        <input class="btn btn-outline-warning" type="button" value="수정"
-                            onclick="mySubmitUpdate(${formName})"/>
-                        <input class="btn btn-outline-warning" type="button" value="신고"
-                               onclick="mySubmitReport(${formName})"/>
-                </c:if>
-                <c:if test="${vo.deleteReport > 10}">
-
-                </c:if>
-            </div>
+                    <input class="btn btn-outline-info" type="button" value="수정"
+                           onclick="mySubmitUpdate(${formName})"/>
+                    <input class="btn btn-outline-warning" type="button" value="신고"
+                           onclick="mySubmitReport(${formName})"/>
+                </div>
+            </c:if>
         </form>
     </c:forEach>
+    <input class="btn btn-outline-warning" type="button" value="일괄삭제"
+           onclick="mySubmitDeleteAll(${formName})"/>
 </body>
 </html>

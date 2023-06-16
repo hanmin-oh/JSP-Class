@@ -6,6 +6,8 @@ import com.tjoeun.vo.CategoryList;
 import com.tjoeun.vo.CategoryVO;
 import org.apache.ibatis.session.SqlSession;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class CategoryService {
@@ -112,7 +114,6 @@ public class CategoryService {
     public void deleteMessage(int idx) {
         System.out.println("CategoryService의 deleteMessage()메소드 실행");
         SqlSession mapper = MySession.getSession();
-
         CategoryDAO.getInstance().deleteMessage(mapper , idx);
         mapper.commit();
         mapper.close();
@@ -151,6 +152,45 @@ public class CategoryService {
         SqlSession mapper = MySession.getSession();
 
         CategoryDAO.getInstance().deleteReport(mapper , idx);
+        mapper.commit();
+        mapper.close();
+    }
+
+    public ArrayList<CategoryVO> deleteList(CategoryVO vo) {
+        System.out.println("CategoryService의 deleteList()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+        ArrayList<CategoryVO> deleteList = CategoryDAO.getInstance().deleteList(mapper, vo);
+        mapper.close();
+        return deleteList;
+    }
+
+    public void deleteAll() {
+        System.out.println("CategoryService의 deleteAll()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+        CategoryDAO.getInstance().deleteAll(mapper);
+        mapper.commit();
+        mapper.close();
+    }
+    public void reSeq(int gup) {
+        System.out.println("CategoryService의 reSeq()메소드 실행");
+        SqlSession mapper = MySession.getSession();
+        CategoryDAO dao = CategoryDAO.getInstance();
+
+        //seq를 다시 부여할 카테고리 그룹만 얻어와서 ArrayList에 저장한다.
+       ArrayList<CategoryVO> gupList = dao.selectGup(mapper, gup);
+
+        // ArrayList로 얻어온 카테고리 그룹의 카테고리 개수만큼 반복하며 seq를 0부터 다시 부여한다.
+        for(int i = 0 ; i<gupList.size(); i++) {
+            //seq를 수정할 카테고리 일련번호(idx)와 seq를 수정할 데이터(i)를 HashMap 객체에 저장한다.
+            HashMap<String, Integer> hmap = new HashMap<>();
+            hmap.put("idx" , gupList.get(i).getIdx()); //조건
+            hmap.put("i" , i); // 수정
+            dao.reSeq(mapper , hmap);
+        }
+
+        for(CategoryVO vo : gupList) {
+            System.out.println(vo);
+        }
         mapper.commit();
         mapper.close();
     }

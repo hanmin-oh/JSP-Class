@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjoeun.vo.FreeboardVO">
+
+	<!-- 메인 글 1건을 저장한다. -->
+	<insert id="insert" parameterType="vo">
+		insert into freeboard (idx, name, password, subject, content, notice, ip)
+		values (freeboard_idx_seq.nextval, #{name}, #{password}, #{subject}, #{content}, #{notice}, #{ip})
+	</insert>
+
+	<select id="selectCount" resultType="vo">
+		select count(*) from freeboard
+	</select>
+
+	<select id="selectList" parameterType="java.util.HashMap" resultType="vo">
+		<![CDATA[
+		select * from (
+		  select rownum runm, TT.* from (
+											select * from freeboard order by IDX desc
+										) TT where rownum <= #endNo#
+	  )where runm >= #startNo#
+		]]>
+	</select>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

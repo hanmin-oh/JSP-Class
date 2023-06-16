@@ -65,6 +65,23 @@
 		UPDATE CATEGORY SET deleteReport = deleteReport + 1 WHERE idx = #{idx}
 	</update>
 
+	<select id="deleteList" parameterType="vo" resultType="vo">
+		select * from category where gup = #{gup} and lev > #{lev} and seq > #{seq} or idx = #{idx}
+		order by gup desc, seq asc
+	</select>
+
+	<delete id="deleteAll" parameterType="int">
+		delete from category
+	</delete>
+
+	<select id="selectGup" parameterType="int" resultType="vo">
+		select * from category where gup = #{gup} order by gup desc, seq asc
+	</select>
+
+	<update id="reSeq" parameterType="int">
+		update category set seq = ${i} where idx = #{idx}
+	</update>
+
 </mapper>
 
 
