@@ -15,12 +15,37 @@
 	<!-- 1페이지 분량의 메인글을 얻어온다. -->
 	<select id="selectList" parameterType="java.util.HashMap" resultType="vo">
 		<![CDATA[
-		select * from (
-						  select rownum runm, TT.* from (
-															select * from freeboard order by IDX desc
-														) TT where rownum <= #{endNo}
-					  )where runm >= #{startNo}
+			select * from (
+			  	select rownum runm, TT.* from (
+						select * from freeboard order by IDX desc
+				) TT where rownum <= #{endNo}
+		   )where runm >= #{startNo}
 		]]>
+	</select>
+
+	<!-- 조회수 증가 메소드  -->
+	<update id="hitsPlus" parameterType="int">
+		UPDATE freeboard SET hit = hit + 1 WHERE idx = #{idx}
+	</update>
+
+	<!-- 메인글 1건 얻어온다.  -->
+	<select id="selectByIdx" parameterType="int" resultType="vo">
+		select * from freeboard where idx = #{idx}
+	</select>
+
+	<!-- 카테고리 1건을 삭제한다. -->
+	<delete id="delete" parameterType="int">
+		delete from freeboard where idx = #{idx}
+	</delete>
+
+
+	<update id="update" parameterType="vo">
+		update freeboard set subject = #{subject}, content = #{content}, notice = #{notice} where idx = #{idx}
+	</update>
+
+	<!-- 공지글 전체를 얻어온다.  -->
+	<select id="selectNotice" resultType="vo">
+		select * from freeboard where notice = 'YES' order by idx desc
 	</select>
 
 </mapper>

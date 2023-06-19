@@ -1,6 +1,5 @@
 package com.tjoeun.dao;
 
-import com.tjoeun.vo.FreeboardList;
 import com.tjoeun.vo.FreeboardVO;
 import org.apache.ibatis.session.SqlSession;
 
@@ -30,4 +29,27 @@ public class FreeboardDAO {
         return (ArrayList<FreeboardVO>) mapper.selectList("selectList", hmap);
     }
 
+    public void hitsPlus(SqlSession mapper, int idx) {
+        System.out.println("FreeboardDAO 클래스의 hitsPlus() 메소드 실행");
+        mapper.update("hitsPlus" , idx);
+    }
+
+    public FreeboardVO selectByIdx(SqlSession mapper, int idx) {
+        System.out.println("FreeboardDAO 클래스의 selectByIdx() 메소드 실행");
+        return (FreeboardVO) mapper.selectOne("selectByIdx" , idx);
+    }
+
+    public void delete(SqlSession mapper, int idx) {
+        System.out.println("CategoryDAO 클래스의 delete() 메소드 실행");
+        mapper.delete("delete" , idx);
+    }
+
+    public void update(SqlSession mapper, FreeboardVO vo) {
+        System.out.println("FreeboardDAO의 update()");
+        mapper.update("update", vo);
+    }
+
+    public ArrayList<FreeboardVO> selectNotice(SqlSession mapper) {
+        return (ArrayList<FreeboardVO>) mapper.selectList("selectNotice");
+    }
 }
