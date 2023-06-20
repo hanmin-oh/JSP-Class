@@ -32,6 +32,7 @@ create sequence freeboardcomment_idx_seq;
 
 select * from freeboard order by idx desc;
 select count(*) from freeboard;
+select * from freeboard where notice = 'YES' order by idx desc;
 
 insert into freeboard (idx, name, password, subject, content, notice, ip) 
 values (freeboard_idx_seq.nextval, '홍길동', '1111', '1등', '1등 입니다.', 'NO', '192.168.100.101');
