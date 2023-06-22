@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.tjoeun.vo.MvcBoardVO">
+
+	<!-- 메인글 1건을 저장한다. -->
+	<insert id="insert" parameterType="vo">
+		insert into mvcboard (idx, name, subject, content)
+		values (mvcboard_idx_seq.nextval, #{name} , #{subject} , #{content})
+	</insert>
+	
+	<select id="selectCount" resultType="int">
+		select count(*) from mvcboard
+	</select>
+	
+	<!-- 1페이지 분량의 메인글을 얻어온다. -->
+	<select id="selectList" parameterType="java.util.HashMap" resultType="vo">
+		<![CDATA[
+		select * from (
+			select rownum rnum, GG.* from (
+				select * from mvcboard order by gup desc, seq asc
+			) GG where rownum <= #{endNo}
+		) where rnum >= #{startNo}
+		]]>
+	</select>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
