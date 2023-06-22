@@ -1,5 +1,5 @@
 <%@page import="com.tjoeun.service.FreeboardService"%>
-<%@page import="com.tjoeun.vo.FreeboardVO"%>
+<%@page import="com.tjoeun.fileupload.FreeboardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,13 +10,13 @@
 <body>
 
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 //	delete.jsp에서 넘어오는 삭제할 글번호, 삭제 후 돌아갈 페이지 번호, 삭제하기 위해서 입력한 비밀번호를
 //	받는다.
 	int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 %>
 
-<jsp:useBean id="vo" class="com.tjoeun.vo.FreeboardVO">
+<jsp:useBean id="vo" class="com.tjoeun.fileupload.FreeboardVO">
 	<jsp:setProperty property="*" name="vo"/>
 </jsp:useBean>
 

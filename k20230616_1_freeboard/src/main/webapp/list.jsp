@@ -1,8 +1,8 @@
 <%@page import="com.tjoeun.service.FreeboardCommentService"%>
-<%@page import="com.tjoeun.vo.FreeboardVO"%>
+<%@page import="com.tjoeun.fileupload.FreeboardVO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.tjoeun.service.FreeboardService"%>
-<%@page import="com.tjoeun.vo.FreeboardList"%>
+<%@page import="com.tjoeun.fileupload.FreeboardList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

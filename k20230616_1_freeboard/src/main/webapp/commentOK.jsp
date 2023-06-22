@@ -16,7 +16,7 @@ int mode = Integer.parseInt(request.getParameter("mode"));
 int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 %>
 
-<jsp:useBean id="co" class="com.tjoeun.vo.FreeboardCommentVO">
+<jsp:useBean id="co" class="com.tjoeun.fileupload.FreeboardCommentVO">
 	<jsp:setProperty property="*" name="co"/>
 </jsp:useBean>
 <%

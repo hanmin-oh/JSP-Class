@@ -7,12 +7,12 @@
 </head>
 <body>
 
-<!-- 파일을 전송하는 폼은 enctype 속성을 반드시 multipart/form-data로 지정해야 한다.  -->
+
+<!--   파일을 전송하는 폼은 enctype 속성을 반드시 multipart/form-data로 지정해야 한다.  -->
 <form action="fileUploadOK.jsp" method="post" enctype="multipart/form-data">
 	<input type="file" name="filename"/><br/>
 	<input type="submit" value="파일전송"/>
 </form>
-
 
 </body>
 </html>

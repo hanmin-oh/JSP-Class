@@ -66,15 +66,21 @@ public class FreeboardCommentService {
 		// 댓글을 수정하기 위해서 입력한 비밀번호와 수정할 댓글의 비밀번호를 비교하기 위해서 수정할 댓글을
 		// 얻어온다.
 		FreeboardCommentVO original = dao.selectCommentByIdx(mapper, co.getIdx());
-		if (original.getPassword().trim().equals(co.getPassword().trim())) {
-			dao.updateComment(mapper, co);
-			mapper.commit();
-			mapper.close();
-			return true;
-		} else {
+		try {
+			if (original.getPassword().trim().equals(co.getPassword().trim())) {
+				dao.updateComment(mapper, co);
+				mapper.commit();
+				mapper.close();
+				return true;
+			} else {
+				mapper.close();
+				return false;
+			}
+		} catch (NullPointerException e) {
 			mapper.close();
 			return false;
 		}
+		
 	}
 	
 //	commentOK.jsp에서 호출되는 댓글을 삭제할 정보가 저장된 객체를 넘겨받고 mapper를 얻어온 후 
@@ -87,12 +93,18 @@ public class FreeboardCommentService {
 		// 댓글을 삭제하기 위해서 입력한 비밀번호와 삭제할 댓글의 비밀번호를 비교하기 위해서 삭제할 댓글을
 		// 얻어온다.
 		FreeboardCommentVO original = dao.selectCommentByIdx(mapper, co.getIdx());
-		if (original.getPassword().trim().equals(co.getPassword().trim())) {
-			dao.deleteComment(mapper, co);
-			mapper.commit();
-			mapper.close();
-			return true;
-		} else {
+		try {
+			
+			if (original.getPassword().trim().equals(co.getPassword().trim())) {
+				dao.deleteComment(mapper, co);
+				mapper.commit();
+				mapper.close();
+				return true;
+			} else {
+				mapper.close();
+				return false;
+			}
+		} catch (NullPointerException e) {
 			mapper.close();
 			return false;
 		}

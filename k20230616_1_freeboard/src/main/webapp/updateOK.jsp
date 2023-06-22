@@ -1,5 +1,5 @@
 <%@page import="com.tjoeun.service.FreeboardService"%>
-<%@page import="com.tjoeun.vo.FreeboardVO"%>
+<%@page import="com.tjoeun.fileupload.FreeboardVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -10,13 +10,13 @@
 <body>
 
 <%
-	request.setCharacterEncoding("UTF-8");
+request.setCharacterEncoding("UTF-8");
 //	update.jsp에서 넘어오는 수정할 글번호, 수정 후 돌아갈 페이지 번호, 수정하기 위해서 입력한 비밀번호,
 //	수정할 내용(제목, 내용, 공지글)을 받는다.
 	int currentPage = Integer.parseInt(request.getParameter("currentPage"));
 %>
 
-<jsp:useBean id="vo" class="com.tjoeun.vo.FreeboardVO">
+<jsp:useBean id="vo" class="com.tjoeun.fileupload.FreeboardVO">
 	<jsp:setProperty property="*" name="vo"/>
 </jsp:useBean>
 

@@ -12,7 +12,7 @@
 	request.setCharacterEncoding("UTF-8");
 %>
 
-<jsp:useBean id="vo" class="com.tjoeun.vo.FreeboardVO">
+<jsp:useBean id="vo" class="com.tjoeun.fileupload.FreeboardVO">
 	<jsp:setProperty property="*" name="vo"/>
 </jsp:useBean>
 ${vo}
