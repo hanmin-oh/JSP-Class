@@ -4,7 +4,6 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="UTF-8">
@@ -18,14 +17,11 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 </head>
 <body>
-
-
 	<table class="table" style="width: 700px; margin-left: auto; margin-right: auto;">
-		<%-- <tr class="table-primary">
+		<tr class="table-primary">
 			<th colspan="5" style="font-size: 30px; text-align: center;">게시판 보기</th>
 		</tr>
 		<tr>
-		
 			<td colspan="5" align="right">
 				${boardList.totalCount}(${boardList.currentPage} / ${boardList.totalPage})
 			</td>
@@ -37,7 +33,7 @@
 			<td style="width: 150px; text-align: center;">작성일</td>
 			<td style="width: 70px; text-align: center;">조회수</td>
 		</tr>
-		 --%>
+		 
 		<c:set var="list" value="${boardList.list}"/>
 		<!-- 메인글이 1건도 없으면 글이 없다고 출력한다. -->
 		<c:if test="${list.size() == 0}">
@@ -50,11 +46,6 @@
 		<c:if test="${list.size() != 0}">
 			<c:forEach var="vo" items="${list}">
 			<tr>
-			 	<td align="center">
-			 	${boardList}
-			 	${vo.writeDate}
-					<fmt:formatDate value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"/>
-				</td> 
 				<td align="center">${vo.idx}</td>
 				<td align="center">
 				   <%-- 카테고리 레벨에 따른 들여쓰기를 한다. --%>
@@ -64,30 +55,12 @@
 	                    </c:forEach>
 	                    Re
 	                </c:if>
-					<i class="bi bi-arrow-through-heart"></i>
-					<!-- 제목에 태그를 적용할 수 없게 한다. -->
 					<c:set var="subject" value="${fn:replace(vo.subject, '<', '&lt;')}"/>
 					<c:set var="subject" value="${fn:replace(subject, '>', '&gt;')}"/>
-					
-					<!-- 제목에 하이퍼링크를 걸어준다. -->
 					<!-- 하이퍼링크를 클릭하면 조회수를 증가시키고 클릭한 메인글의 내용을 표시한다. -->
-					<a href="increment.jsp?idx=${vo.idx}&currentPage=${currentPage}">
+					<a href="increment.ohm?idx=${vo.idx}&currentPage=${boardList.currentPage}">
 						${vo.subject}
 					</a>
-			
-			
-			<jsp:useBean id="date" class="java.util.Date"/>
-				<%-- 	<!-- 오늘 입력된 글에 new 아이콘 이미지를 표시한다. -->
-					<c:if test="${date.year == vo.writeDate.year && date.month == vo.writeDate.month &&
-						date.date == vo.writeDate.date}">
-						<img src="./images/ic_new.gif"/>
-					</c:if> --%>
-					
-					<!-- 조회수가 일정 횟수를 넘어가면 hot 아이콘을 표시한다. -->
-					<c:if test="${vo.hit > 10}">
-						<img src="./images/hot.gif"/>
-						<i class="bi bi-tags"></i>
-					</c:if>
 				</td>
 				<td align="center">
 					<!-- 이름에 태그를 적용할 수 없게 한다. -->
@@ -95,8 +68,19 @@
 					<c:set var="name" value="${fn:replace(name, '>', '&gt;')}"/>
 					${name}
 				</td>
+				<td align="center">
+					<jsp:useBean id="date" class="java.util.Date"/>
+					<c:if test="${date.year == vo.writeDate.year && date.month == vo.writeDate.month &&
+						date.date == vo.writeDate.date}">
+						<fmt:formatDate value="${vo.writeDate}" pattern="a h:mm:ss"/>
+					</c:if>
+					<c:if test="${date.year != vo.writeDate.year || date.month != vo.writeDate.month ||
+						date.date != vo.writeDate.date}">
+						<fmt:formatDate value="${vo.writeDate}" pattern="yyyy.MM.dd(E)"/>
+					</c:if>
+				</td>
 				<td align="center">${vo.hit}</td>
-			</tr>
+				</tr>
 			</c:forEach>
 		</c:if>
 		
@@ -190,6 +174,17 @@
 					>마지막</button>
 				</c:if>
 				
+			</td>
+		</tr>
+		<!-- 글쓰기 버튼 -->
+		<tr class="table-secondary">
+			<td colspan="5" align="right">
+				<input 
+					class="btn btn-outline-primary btn-sm" 
+					type="button" 
+					value="글쓰기"
+					style="font-size: 13px;"
+					onclick="location.href='insert.ohm'"/>
 			</td>
 		</tr>
 	

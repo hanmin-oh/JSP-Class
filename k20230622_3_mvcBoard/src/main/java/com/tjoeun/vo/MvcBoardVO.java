@@ -1,6 +1,6 @@
 package com.tjoeun.vo;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class MvcBoardVO {
 	
@@ -62,13 +62,13 @@ public class MvcBoardVO {
 	public void setHit(int hit) {
 		this.hit = hit;
 	}
-	public Date getWritedate() {
+	
+	public Date getWriteDate() {
 		return writeDate;
 	}
-	public void setWritedate(Date writeDate) {
+	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
-	
 	@Override
 	public String toString() {
 		return "MvcBoardVO [idx=" + idx + ", name=" + name + ", subject=" + subject + ", content=" + content + ", gup="

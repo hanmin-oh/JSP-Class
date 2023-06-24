@@ -76,4 +76,84 @@ public class MvcBoardService {
 			
 			mapper.close();
 		}
+		
+		public void increment(HttpServletRequest request, HttpServletResponse response) {
+			SqlSession mapper = MySession.getSession();
+			int idx = Integer.parseInt(request.getParameter("idx"));
+			dao.increment(mapper, idx);
+			mapper.commit();
+			mapper.close();
+		}
+		
+		public void selectByIdx(HttpServletRequest request, HttpServletResponse response) {
+			SqlSession mapper = MySession.getSession();
+			int idx = Integer.parseInt(request.getParameter("idx"));
+			int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+			MvcBoardVO vo = dao.selectByIdx(mapper, idx);
+			
+			// 브라우저에 표시할 글이 저장된 객체(vo), 작업 후 돌아갈 페이지 번호(currentPage), 줄바꿈에
+			// 사용할 이스케이프 시퀀스(\r\n)를 request 영역에 저장한다.
+			request.setAttribute("vo", vo);
+			request.setAttribute("currentPage", currentPage);
+			request.setAttribute("enter", "\r\n");
+			
+			mapper.close();
+			
+			
+		}
+		
+		public void update(HttpServletRequest request, HttpServletResponse response) {
+			SqlSession mapper = MySession.getSession();
+			int idx = Integer.parseInt(request.getParameter("idx"));
+			MvcBoardVO vo = new MvcBoardVO();
+			vo.setIdx(Integer.parseInt(request.getParameter("idx")));
+			vo.setSubject(request.getParameter("subject"));
+			vo.setContent(request.getParameter("content"));
+			dao.update(mapper, vo);
+			mapper.commit();
+			mapper.close();
+		}
+		public void delete(HttpServletRequest request, HttpServletResponse response) {
+			SqlSession mapper = MySession.getSession();
+			int idx = Integer.parseInt(request.getParameter("idx"));
+			dao.delete(mapper, idx);
+			mapper.commit();
+			mapper.close();
+		}
+		public void replyInsert(HttpServletRequest request, HttpServletResponse response) {
+			SqlSession mapper = MySession.getSession();
+			
+			// request 객체로 넘어오는 답글 정보를 받는다.
+			int idx = Integer.parseInt(request.getParameter("idx"));
+			int gup = Integer.parseInt(request.getParameter("gup"));
+			int lev = Integer.parseInt(request.getParameter("lev"));
+			int seq = Integer.parseInt(request.getParameter("seq"));
+			int currentPage = Integer.parseInt(request.getParameter("currentPage"));
+			String name = request.getParameter("name");
+			String subject = request.getParameter("subject");
+			String content = request.getParameter("content");
+			// 답글 정보를 MvcBoardVO 클래스 객체에 저장한다. 이 때, lev와 seq는 1씩 증가시켜 저장한다. 
+			MvcBoardVO vo = new MvcBoardVO();
+			vo.setIdx(idx);
+			vo.setGup(gup);
+			vo.setLev(lev + 1);
+			vo.setSeq(seq + 1);
+			vo.setName(request.getParameter("name"));
+			vo.setSubject(request.getParameter("subject"));
+			vo.setContent(request.getParameter("content"));
+			
+			// 같은 글그룹(gup)에서 답글이 표시될 위치(seq) 이후의 모든 글이 출력될 위치를 1씩 증가시키는
+			// 메소드를 실행한다.
+			HashMap<String, Integer> hmap = new HashMap<>();
+			hmap.put("gup", vo.getGup());
+			hmap.put("seq", vo.getSeq());
+			dao.incrementSeq(mapper, hmap);
+			
+			// 답글을 저장하는 메소드를 실행한다.
+			dao.replyInsert(mapper, vo);
+			
+			mapper.commit();
+			mapper.close();
+			
+		}
 }
