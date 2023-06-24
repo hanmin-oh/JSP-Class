@@ -32,37 +32,35 @@ function searchFunction() {
 	// onreadystatechange를 사용해서 ajax 요청이 완료되면 자동으로 실행할 콜백 함수 이름을 지정한다. 
 	searchRequest.onreadystatechange = searchProcess; // ()를 쓰면 안된다.
 }
-// ajax 요청이 완료되면 실행할 콜백 함수 
+
+//	ajax 요청이 완료되면 실행할 콜백 함수
 function searchProcess() {
-	// console.log('searchFunction() 함수에서 요청한 ajax가 완료되면 자동으로 실행되는 함수');
+//	console.log('searchFunction() 함수에서 요청한 ajax가 완료되면 자동으로 실행되는 함수');
 	
-	// XHR 객체의 readyState
-	// 0: 아직 시행되지 않은
-	// 1: 로딩중
-	// 2: 로딩됨
-	// 3: 통신중
-	// 4: 통신완료
-	//console.log('readyState: ' + searchRequest.readyState);
-	
-	// XHR 객체의 status
-	// 200 : 수신성공
-	// 3xx : 금지
-	// 4xx : 페이지없음
-	// 5xx : 서버오류
-	//console.log('status: ' + searchRequest.status);
-	 
-	
-	//통신이 정상적으로 완료되었음을 확인하고 필요한 작업을 실행한다. 
-	if(searchRequest.readystatus == 4 && searchRequest.status == 200) {
+//	XHR 객체의 readyState
+//	0: 아직 실행되지 않음 
+//	1: 로딩중
+//	2: 로딩됨
+//	3: 통신중
+//	4: 통신완료
+//	console.log('readyState: ' + searchRequest.readyState);
+
+//	XHR 객체의 status
+//	200: 수신성공
+//	3xx: 금지
+//	4xx: 페이지없음
+//	5xx: 서버오류
+//	console.log('status: ' + searchRequest.status);
+
+//	통신이 정상적으로 완료되었음을 확인하고 필요한 작업을 실행한다.
+	if (searchRequest.readyState == 4 && searchRequest.status == 200) {
+		
+		
 		
 	} else {
 		alert('요청 실패');
 	}
-	
-	
-	
 }
-
 
 
 
