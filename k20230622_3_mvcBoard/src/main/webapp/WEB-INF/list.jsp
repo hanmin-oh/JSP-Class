@@ -47,8 +47,7 @@
 			<c:forEach var="vo" items="${list}">
 			<tr>
 				<td align="center">${vo.idx}</td>
-				<td align="center">
-				   <%-- 카테고리 레벨에 따른 들여쓰기를 한다. --%>
+				<td>
 	                <c:if test="${vo.lev > 0}" >
 	                    <c:forEach var="i" begin="1" end="${vo.lev}" step="1">
 	                        &nbsp;&nbsp;&nbsp;&nbsp;
