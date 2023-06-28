@@ -45,10 +45,10 @@
 		vertical-align: middle;
 	}
 	td.sat{color: blue;} td.sun{color: red;} 
-	td.beforesun{color: red; font-size: 10pt;} 
-	td.before{font-size: 10pt;}
-	td.aftersat{color: blue; font-size: 10pt;} 
-	td.after{font-size: 10pt;}
+	td.beforesun{color: red; font-size: 10pt; background-color: gray;} 
+	td.before{font-size: 10pt; background-color: gray;}
+	td.aftersat{color: blue; font-size: 10pt; background-color: gray;} 
+	td.after{font-size: 10pt; background-color: gray;}
 	/* 
 	하이퍼링크 스타일 지정하기
 	link : 1번도 클릭하지 않은 하이퍼링크
