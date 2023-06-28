@@ -1,10 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>���ĸ��</title>
+<title>음식목록</title>
 <!-- bootstrap -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
@@ -20,54 +19,54 @@ table, th, td {
 </head>
 <body>
 
-<h2>�ȳ��ϼ��� Ǫ���Դϴ�~</h2>
+<h2>안녕하세요 푸드어리입니다~</h2>
 <table style="width:50%; border-right: none;">
   <tr>
- 	<th>�� ����</th>
+ 	<th>내 정보</th>
     <td>175cm</td>
     <td>67kg</td>
-    <td>�ٷ�����</td>
+    <td>근력증가</td>
   </tr>
   </table>
   
-  <h2>�Ĵ�</h2>
+  <h2>식단</h2>
   <table style="width:50%">
   <tr>
-    <th>��ħ</th>
-    <td>ź��ȭ��: </td>
-    <td>�ܹ���: </td>
-    <td>����: </td>
+    <th>아침</th>
+    <td>탄수화물: </td>
+    <td>단백질: </td>
+    <td>지방: </td>
     <td style="border: none;">
     	<input 
 			class="btn btn-outline-primary btn-sm" 
 			type="button" 
-			value="�Ĵ��Է�"
+			value="식단입력"
 			style="font-size: 13px;"
 			onclick="location.href='foodInput.jsp'"/>
 	</td>
   </tr>
 </table>
-	<h2>���İ˻�</h2>
+	<h2>음식검색</h2>
 	<table>
 		<tr>
-			<td>���İ˻� <input type="text"/> 
+			<td>음식검색 <input type="text"/> 
 			<input 
 				type="button" 
-				value="�˻�"
+				value="검색"
 				onclick="location.href='foodList.jsp'"/></td>
 		</tr>
-		<tr><td>�߰���(����)<input type="checkbox"/></td></tr>
-			<tr><td>ġŲ�Ѹ���<input type="checkbox"/></td></tr>
-			<tr><td>�߹��<input type="checkbox"/></td></tr>
-			<tr><td>�߰���<input type="checkbox"/></td></tr>
-			<tr><td>�ߵ�����<input type="checkbox"/></td></tr>
+		<tr><td>닭고기(구이)<input type="checkbox"/></td></tr>
+			<tr><td>치킨한마리<input type="checkbox"/></td></tr>
+			<tr><td>닭백숙<input type="checkbox"/></td></tr>
+			<tr><td>닭갈비<input type="checkbox"/></td></tr>
+			<tr><td>닭도리탕<input type="checkbox"/></td></tr>
 		<tr>
 			<tr class="table-secondary">
 			<td colspan="5" align="right">
 				<input 
 					class="btn btn-outline-primary btn-sm" 
 					type="button" 
-					value="�Ĵ��Է�"
+					value="식단입력"
 					style="font-size: 13px;"
 					onclick="location.href='homeView.jsp'"/>
 			</td>
@@ -78,7 +77,7 @@ table, th, td {
 	<input 
 		class="btn btn-outline-primary btn-sm" 
 		type="button" 
-		value="���ư���"
+		value="돌아가기"
 		style="font-size: 13px;"
 		onclick="location.href='homeView.jsp'"/>
 </body>
