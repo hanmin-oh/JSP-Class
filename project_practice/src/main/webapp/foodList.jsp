@@ -19,6 +19,8 @@ table, th, td {
 </head>
 <body>
 
+<h2>수정연습<h2>
+
 <h2>안녕하세요 푸드어리입니다~</h2>
 <table style="width:50%; border-right: none;">
   <tr>
