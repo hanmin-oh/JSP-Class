@@ -26,7 +26,7 @@ public class SelectService {
     public GuestbookList selectList(int currentPage) throws SQLException {
         System.out.println("SelectService 클래스의 selectService() 메소드 실행");
         SqlMapClient mapper = MyAppSqlConfig.getSqlMapInstance();
-
+        System.out.println(mapper);
         // 1페이지 분량의 글 목록과 페이징 작업에 사용할 8개의 변수를 저장해서 리턴시킬 객체를 선언한다.
         GuestbookList guestbookList = null;
 //        GuestbookDAO 클래스 객체에 2번 접근해서 sql 명령을 실행해야 하므로 GuestbookDAO 클래스의 객체를 미리 얻어둔다.

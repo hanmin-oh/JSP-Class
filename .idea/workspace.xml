@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6ff5739b-70b0-456f-8274-a62f217f8b93" name="변경" comment="0601 Promise End">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="6ff5739b-70b0-456f-8274-a62f217f8b93" name="변경" comment="0601 Promise End" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,7 +53,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/k-digital/web/workspace/k20230602_4_loginTest",
+    "last_opened_file_path": "C:/coding/JSP-class/k20230609_1_guestbook",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -184,6 +182,7 @@
       <workItem from="1685667006632" duration="420000" />
       <workItem from="1685693888264" duration="56000" />
       <workItem from="1685765069912" duration="249000" />
+      <workItem from="1688441774671" duration="175000" />
     </task>
     <task id="LOCAL-00001" summary="0531 class end">
       <created>1685529787555</created>
