@@ -8,18 +8,18 @@ CREATE TABLE "MVCBOARD" (
 	"GUP" NUMBER(*,0), 
 	"LEV" NUMBER(*,0), 
 	"SEQ" NUMBER(*,0), 
-	HIT" NUMBER(*,0) DEFAULT 0, 
+	"HIT" NUMBER(*,0) DEFAULT 0, 
 	"WRITEDATE" TIMESTAMP (6) DEFAULT sysdate, 
 	CONSTRAINT "MVCBOARD_PK" PRIMARY KEY ("IDX")
 );
 insert into mvcboard (idx, name, subject, content)
-values (mvcboard_idx_seq.nextval, 'ÀÌ¼ø½Å' , '1µî' , '¸í·®ÇØÀü');
+values (mvcboard_idx_seq.nextval, 'ì´ìˆœì‹ ' , '1ë“±' , 'ëª…ëŸ‰í•´ì „');
 insert into mvcboard (idx, name, subject, content)
-values (mvcboard_idx_seq.nextval, '°­°¨Âù' , '2µî' , '±ÍÁÖ´ëÃ¸');
+values (mvcboard_idx_seq.nextval, 'ê°•ê°ì°¬' , '2ë“±' , 'ê·€ì£¼ëŒ€ì²©');
 insert into mvcboard (idx, name, subject, content)
-values (mvcboard_idx_seq.nextval, 'À»Áö¹®´ö' , '3µî' , '»ì¼ö´ëÃ¸');
+values (mvcboard_idx_seq.nextval, 'ì„ì§€ë¬¸ë•' , '3ë“±' , 'ì‚´ìˆ˜ëŒ€ì²©');
 insert into mvcboard (idx, name, subject, content)
-values (mvcboard_idx_seq.nextval, 'È«¹üµµ' , '4µî' , 'ºÀ¿Àµ¿ ÀüÅõ');
+values (mvcboard_idx_seq.nextval, 'í™ë²”ë„' , '4ë“±' , 'ë´‰ì˜¤ë™ ì „íˆ¬');
 
 delete from mvcboard;
 drop sequence mvcboard_idx_seq;
